@@ -19,27 +19,29 @@ const Navbar = ( {theme, setTheme}  ) => {
       <img src={logo_baby} alt="" className='responsive-image logo' />
       <ul>
         <li><a href= "/">Home</a></li>
-        <li ><a href= "/products">Products</a></li>
-        <li ><a href= "/features">Features</a></li>
+        <li ><a href= "/User_list">list</a></li>
         <li ><a href= "/about">About</a></li>
+        <li ><a href= "/Useful_link">Link</a></li>
       </ul>
-
+        
+      
       <div className='search-box'>
         <input type='text' placeholder='Search' />
         <img src={ theme == 'light'? search_icon_white : search_icon_black  }  alt="" className="responsive-image" />
       </div>
+      
 
       <img onClick ={() => toggle_mode() } 
         src={ theme == 'light'? toggle_day : toggle_night  } 
         alt="" className='responsive-image toggle-icon' 
       />
 
-    </div>
+    </div> 
     </>
   );
 };
 
-export default Navbar;
+export default Navbar; 
 
 /*
 export default function Navbar() {

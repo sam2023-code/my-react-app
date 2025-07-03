@@ -80,7 +80,10 @@ import { useEffect,useState } from 'react'
 import Navbar from './components/Navbar/Navbar.jsx'
 import ListEmployee from './employee/ListEmployee'
 import Home from './navbar_pages/Home.jsx'
+import User_list from './navbar_pages/User_list.jsx'
 import About from './navbar_pages/About.jsx'
+import Useful_link from './navbar_pages/Useful_link.jsx'
+
 
 import { API_BASE_URL, DEBUG_MODE } from './config';
 
@@ -105,10 +108,16 @@ function App() {
   let Component;
   switch (window.location.pathname) {
     case "/":
-      Component = <ListEmployee />;
+      Component = <Home />;
+      break;
+    case "/User_list":
+      Component = <User_list />;
       break;
     case "/about":
       Component = <About />;
+      break;
+    case "/Useful_link":
+      Component = <Useful_link />;
       break;
     default:
       Component = <NotFound />; // Optional: Handle unknown routes
