@@ -19,9 +19,9 @@ const Navbar = ( {theme, setTheme}  ) => {
       <img src={logo_baby} alt="" className='responsive-image logo' />
       <ul>
         <li>Home</li>
-        <li>Products</li>
-        <li>Features</li>
-        <li>About</li>
+        <li className='hover-effect'>Products</li>
+        <li className='hover-effect'>Features</li>
+        <li className='hover-effect'>About</li>
       </ul>
 
       <div className='search-box'>

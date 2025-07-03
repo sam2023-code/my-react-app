@@ -75,3 +75,15 @@ ul li{
     background: #000;
     color: #fff;
 }
+
+/* styles.css */
+/*
+.hover-effect {
+    background-color: white; // Default background color 
+    transition: background-color 0.3s ease; // className='hover-effect'
+}
+*/
+
+.hover-effect:hover {
+    background-color: lightgreen; /* Background color on hover */
+}
