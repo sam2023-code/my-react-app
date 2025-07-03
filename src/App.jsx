@@ -124,9 +124,11 @@ function App() {
     <>
       <div className={`container ${theme}`}>
 
+        
+
         <Router> {/* Wrap with Router if using React Router */}
+          <Navbar />
           <div>
-            <Navbar />
             <Routes> {/* Define routes for your pages */}
               <Route path="/" element={<Home/>} />
               <Route path="/User_list" element={<User_list/>} />

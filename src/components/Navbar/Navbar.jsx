@@ -52,7 +52,8 @@ import search_icon_black from '../../assets/search_b.png'
 import toggle_day from '../../assets/day.png'
 import toggle_night from '../../assets/night.png'
 
-import { Link } from 'react-router-dom'; 
+import { BrowserRouter  as Router, Routes, Route, Link } from 'react-router-dom'; 
+import Useful_link from '../../navbar_pages/Useful_link.jsx'
 
 const Navbar = ( {theme, setTheme}  ) => {
 
@@ -71,6 +72,7 @@ const Navbar = ( {theme, setTheme}  ) => {
         <li><Link to= "/Useful_link">Link</Link></li>
       </ul>
         
+
       
       <div className='search-box'>
         <input type='text' placeholder='Search' />
