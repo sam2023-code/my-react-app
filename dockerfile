@@ -5,7 +5,7 @@ FROM nginx:alpine
 COPY dist/ /usr/share/nginx/html
 
 # Copy the rest of your application files
-COPY . .
+COPY src src/
 
 # Expose port 80
 EXPOSE 80
