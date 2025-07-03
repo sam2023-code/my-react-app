@@ -1,0 +1,12 @@
+.logo_Home_Jason {
+    max-width: 80%; /* Maximum width of the image */
+    max-height: 80%; /* Maximum height of the image */
+    max-width: 500px; /* Minimum width of the image */
+    max-height: 500px; /* Minimum height of the image */
+
+    min-width: 50px; /* Minimum width of the image */
+    min-height: 50px; /* Minimum height of the image */
+    
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+}
