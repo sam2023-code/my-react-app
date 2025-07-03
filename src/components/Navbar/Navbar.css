@@ -42,6 +42,9 @@ ul li{
     font-size: 18px;
     cursor: pointer;
 }
+ul li:hover {
+    background-color: lightgreen; /* Background color on hover */
+}
 
 .toggle-icon{
     cursor: pointer;
@@ -82,8 +85,9 @@ ul li{
     background-color: white; // Default background color 
     transition: background-color 0.3s ease; // className='hover-effect'
 }
-*/
+
 
 .hover-effect:hover {
-    background-color: lightgreen; /* Background color on hover */
+    background-color: lightgreen; //Background color on hover
 }
+*/

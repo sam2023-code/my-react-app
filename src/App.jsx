@@ -79,6 +79,8 @@ import './css/style.css'
 import { useEffect,useState } from 'react'
 import Navbar from './components/Navbar/Navbar.jsx'
 import ListEmployee from './employee/ListEmployee'
+import Home from './navbar_pages/Home.jsx'
+import About from './navbar_pages/About.jsx'
 
 import { API_BASE_URL, DEBUG_MODE } from './config';
 
@@ -99,14 +101,26 @@ function App() {
   useEffect(() => {
     localStorage.setItem('current_theme', theme);
   }, [theme])
+
+  let Component;
+  switch (window.location.pathname) {
+    case "/":
+      Component = <ListEmployee />;
+      break;
+    case "/about":
+      Component = <About />;
+      break;
+    default:
+      Component = <NotFound />; // Optional: Handle unknown routes
+      break;
+  }
   
 
   return (
     <>
       <div className={`container ${theme}`}>
       <Navbar theme={theme} setTheme={setTheme} />
-
-      <ListEmployee />
+      {Component}
       </div>
 
     </>
