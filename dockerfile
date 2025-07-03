@@ -4,6 +4,9 @@ FROM nginx:alpine
 # Copy the build output to the Nginx default directory
 COPY dist/ /usr/share/nginx/html
 
+# Copy the rest of your application files
+COPY . .
+
 # Expose port 80
 EXPOSE 80
 
