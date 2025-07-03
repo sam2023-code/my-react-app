@@ -76,7 +76,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './css/style.css'
 
-import { useState } from 'react'
+import { useEffect,useState } from 'react'
 import Navbar from './components/Navbar/Navbar.jsx'
 import ListEmployee from './employee/ListEmployee'
 
@@ -88,13 +88,26 @@ function Hello_test() {
 }
 
 function App() {
-  //const [count, setCount] = useState(0)
+  
+  //refresh will reset
+  //const [theme, setTheme] = useState('light')
+
+  
+  const current_theme = localStorage.getItem('current_theme');
+  const [theme, setTheme] = useState(current_theme ? current_theme : 'light');
+
+  useEffect(() => {
+    localStorage.setItem('current_theme', theme);
+  }, [theme])
+  
 
   return (
     <>
-      <Navbar/>
-      <ListEmployee />
+      <div className={`container ${theme}`}>
+      <Navbar theme={theme} setTheme={setTheme} />
 
+      <ListEmployee />
+      </div>
 
     </>
   );

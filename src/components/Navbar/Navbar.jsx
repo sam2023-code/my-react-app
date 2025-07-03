@@ -1,24 +1,38 @@
 
 import React from 'react';
 import './Navbar.css';
+import logo_baby from '../../assets/logo_baby.png'
+import search_icon_white from '../../assets/search_w.png'
+import search_icon_black from '../../assets/search_b.png'
+import toggle_day from '../../assets/day.png'
+import toggle_night from '../../assets/night.png'
 
-const Navbar = () => {
+const Navbar = ( {theme, setTheme}  ) => {
+
+    const toggle_mode = () => {
+        theme == 'light' ? setTheme('dark') : setTheme('light') ;
+    }
+
   return (
     <>
     <div className='navbar'>
-      <img src="" alt="" className='logo' />
+      <img src={logo_baby} alt="" className='responsive-image logo' />
       <ul>
         <li>Home</li>
         <li>Products</li>
         <li>Features</li>
         <li>About</li>
       </ul>
+
       <div className='search-box'>
         <input type='text' placeholder='Search' />
-        <img src="" alt="" />
+        <img src={ theme == 'light'? search_icon_white : search_icon_black  }  alt="" className="responsive-image" />
       </div>
 
-      <img src="" alt="" className='toggle-icon' />
+      <img onClick ={() => toggle_mode() } 
+        src={ theme == 'light'? toggle_day : toggle_night  } 
+        alt="" className='responsive-image toggle-icon' 
+      />
 
     </div>
     </>
