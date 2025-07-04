@@ -53,7 +53,7 @@ import toggle_day from '../../assets/day.png'
 import toggle_night from '../../assets/night.png'
 
 import { BrowserRouter  as Router, Routes, Route, Link } from 'react-router-dom'; 
-import Useful_link from '../../navbar_pages/Useful_link.jsx'
+
 
 const Navbar = ( {theme, setTheme}  ) => {
 
@@ -65,6 +65,7 @@ const Navbar = ( {theme, setTheme}  ) => {
     <>
     <div className='navbar'>
       <img src={logo_baby} alt="" className='responsive-image logo' />
+      
       <ul>
         <li><Link to= "/">Home</Link></li>
         <li><Link to= "/User_list">list</Link></li>
@@ -76,13 +77,15 @@ const Navbar = ( {theme, setTheme}  ) => {
       
       <div className='search-box'>
         <input type='text' placeholder='Search' />
-        <img src={ theme == 'light'? search_icon_white : search_icon_black  }  alt="" className="responsive-image" />
+        <img src={ theme == 'light'? search_icon_white : search_icon_black  }  
+        alt="" 
+        className="responsive-image" />
       </div>
       
 
       <img onClick ={() => toggle_mode() } 
-        src={ theme == 'light'? toggle_day : toggle_night  } 
-        alt="" className='responsive-image toggle-icon' 
+        src={ theme == 'light'? toggle_day : toggle_night  } alt="" 
+        className='responsive-image toggle-icon' 
       />
 
     </div> 

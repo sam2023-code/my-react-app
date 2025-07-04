@@ -33,7 +33,7 @@ const Useful_link = () => {
     Youtube:
     <div class="single_row">
 		<a href="https://www.youtube.com/watch?v=l0RlF5ffzU8&t=578s&ab_channel=FelixYu">
-		AWS Load Balancers with EC2 Instances – Complete Step-by-Step Tutorial [2025]
+		AWS Load Balancers with EC2 Instances
 		</a>
 	</div>
 	<br/>

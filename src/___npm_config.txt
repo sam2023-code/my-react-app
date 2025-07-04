@@ -8,3 +8,6 @@ npm list chart.js
 npm install react-router-dom
 npm install chart.js
 npm install chartjs-adapter-date-fns
+
+npm install axios
+npm install formik yup axios react-router-dom

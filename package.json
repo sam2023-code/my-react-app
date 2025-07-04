@@ -15,11 +15,13 @@
     "chart.js": "^4.5.0",
     "chartjs-adapter-date-fns": "^3.0.0",
     "config": "^4.0.0",
+    "formik": "^2.4.6",
     "nginx": "^1.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.3",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",

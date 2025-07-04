@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect,useState , useRef } from 'react';
 import { Chart, registerables } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 
-function About() {
+function Chart_func() {
   const chartRef = useRef(null);
 
   const data = [
@@ -43,6 +43,8 @@ function About() {
             borderColor: 'blue',
             fill: false,
             tension: 0.3, // Adjust the tension value to control the curve
+            borderWidth: 2,
+            //dataWithUnits:data + 'KG'
           },
         ],
       },
@@ -93,14 +95,17 @@ function About() {
   }, []);
 
   return (
+
+    <>     
     <div>
       <h5> Chart.js </h5>
       <h3> Jason's weight changes over the given time period </h3>
-      <canvas id="myChart"></canvas>
-
+      <div style={ {"maxWidth":"800px" , "padding":'20px' }  } >
+        <canvas id="myChart" ></canvas>
+      </div>
       <br/>
 
-      <table id="dataTable">
+      <table id="dataTable" style={{padding:'20px'}}  >
         <thead>
           <tr>
             <th>Date</th>
@@ -109,6 +114,51 @@ function About() {
         </thead>
         <tbody></tbody>
       </table>
+    </div>
+    </>
+  );
+}
+
+function About() {
+  const [loading, setLoading] = useState(true);
+  const [status, setStatus] = useState('Loading...');
+
+  const performAsyncTask = () => {
+    return new Promise(resolve => {
+      // Simulate an asynchronous operation
+      setTimeout(() => {
+        console.log('Function executed!');
+        resolve();
+      }, 1000); // Simulate task duration
+    });
+  };
+
+  useEffect(() => {
+    // Set loading state and start the process
+    setLoading(true);
+    setStatus('Loading...');
+
+    // Combine the 2-second loading delay with the async function execution
+    const timer = setTimeout(() => {
+      performAsyncTask().then(() => {
+        setLoading(false);
+        setStatus('');
+      });
+    }, 300); // Show loading for at least 0.7 seconds
+
+    // Cleanup the timer if the component unmounts
+    return () => clearTimeout(timer);
+  }, []); // Empty dependency array ensures this runs only once on mount
+
+  return (
+    <div>
+      {loading ? (
+        <p>{status}</p>
+      ) : (
+        <>
+          <Chart_func/>
+        </>
+      )}
     </div>
   );
 }
@@ -182,74 +232,4 @@ function About() {
 }
 
 export default About;
-*/
-
-/*
-import React, { useRef, useEffect } from 'react';
-import { Chart, registerables } from 'chart.js';
-import 'chart.js/auto'; // Import this to register all chart types
-
-Chart.register(...registerables);
-
-const MyChart = ({ data, type }) => {
-  const chartRef = useRef(null);
-  const chartInstance = useRef(null);
-
-  useEffect(() => {
-    if (chartInstance.current) {
-      chartInstance.current.destroy(); // Cleanup on re-render
-    }
-
-    const myChartRef = chartRef.current.getContext('2d');
-    chartInstance.current = new Chart(myChartRef, {
-      type: type,
-      data: {
-        labels: data.map(item => item.label), // Assuming each item has a 'label' property
-        datasets: [{
-          label: 'My Data',
-          data: data.map(item => item.value), // Assuming each item has a 'value' property
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgba(255, 99, 132, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        // Customize options here (scales, legends, etc.)
-      }
-    });
-
-    return () => {
-      if (chartInstance.current) {
-        chartInstance.current.destroy();
-      }
-    };
-  }, [data, type]);
-
-  return (
-    <div>
-      <canvas ref={chartRef} />
-    </div>
-  );
-};
-
-
-// Example usage:
-//<MyChart data={chartData} type="bar" />
-//<MyChart data={chartData} type="line" />
-const chartData = [
-  { label: 'A', value: 10 },
-  { label: 'B', value: 20 },
-  { label: 'C', value: 15 }
-];
-
-function About() {
-    return (
-        <div>
-            <MyChart data={chartData} type="bar" />
-            <MyChart data={chartData} type="line" />
-        </div>
-    );
-}
-
-export default About
 */
