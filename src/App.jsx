@@ -1,72 +1,3 @@
-
-/*
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './css/style.css'
-
-import { useEffect,useState } from 'react'
-import Navbar from './components/Navbar/Navbar.jsx'
-import ListEmployee from './employee/ListEmployee'
-import Home from './navbar_pages/Home.jsx'
-import User_list from './navbar_pages/User_list.jsx'
-import About from './navbar_pages/About.jsx'
-import Useful_link from './navbar_pages/Useful_link.jsx'
-
-
-import { API_BASE_URL, DEBUG_MODE } from './config';
-
-
-function Hello_test() {
-  return <h3> hello {location.protocol + "//" + location.host}</h3>
-}
-
-function App() {
-  
-  //refresh will reset
-  //const [theme, setTheme] = useState('light')
-
-  
-  const current_theme = localStorage.getItem('current_theme');
-  const [theme, setTheme] = useState(current_theme ? current_theme : 'light');
-
-  useEffect(() => {
-    localStorage.setItem('current_theme', theme);
-  }, [theme])
-
-  let Component;
-  switch (window.location.pathname) {
-    case "/":
-      Component = <Home />;
-      break;
-    case "/User_list":
-      Component = <User_list />;
-      break;
-    case "/about":
-      Component = <About />;
-      break;
-    case "/Useful_link":
-      Component = <Useful_link />;
-      break;
-    default:
-      Component = <NotFound />; // Optional: Handle unknown routes
-      break;
-  }
-  
-
-  return (
-    <>
-      <div className={`container ${theme}`}>
-      <Navbar theme={theme} setTheme={setTheme} />
-      {Component}
-      </div>
-
-    </>
-  );
-}
-
-export default App
-*/
-
 import './css/style.css'
 
 import React , { useEffect,useState } from 'react'
@@ -78,16 +9,31 @@ import About from './navbar_pages/About.jsx'
 import Useful_link from './navbar_pages/Useful_link.jsx'
 import UserCreate from './navbar_pages/UserCreate.jsx'
 import UserForm from './components/Userform/UserForm.jsx'
-
+import Login_check from './components/Login/Login_check.jsx';
+import Login_page from './components/Login/Login_page.jsx';
 
 import { BrowserRouter  as Router, Routes, Route } from 'react-router-dom'; // If using React Router
+import { useNavigate } from 'react-router-dom';
 
 function Hello_test() {
   return <h3> hello {location.protocol + "//" + location.host}</h3>
 }
 
 function App() {
-  
+
+   // 使用自定義的 login check hook
+   /*
+  const [loginStatus, setLoginStatus] = useState(false);
+
+  const handleLoginCheck = (status) => {
+    setLoginStatus(status);
+    console.log('當前登錄狀態:', status ? '已登錄' : '未登錄');
+  };
+  const isLoggedIn = Login_check(handleLoginCheck);
+  */
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // 检查登录状态
+  console.log('當前登錄狀態:', isLoggedIn ? '已登錄.' : '未登錄.');
+
   //refresh will reset
   //const current_theme = useState('light')
   
@@ -120,11 +66,14 @@ function App() {
     case "/useful_link":
       Component = <Useful_link />;
       break;
-    case "/userCreate":
+    case "/user_create":
       Component = <UserCreate />;
       break;
-    case "/userForm":
+    case "/user_form":
       Component = <UserForm />;
+      break;
+    case "/login_page":
+      Component = <Login_page />;
       break;
     default:
       Component = <NotFound />; // Optional: Handle unknown routes
@@ -136,31 +85,48 @@ function App() {
     <>
       <div className={`container ${theme}`}>
 
+
         <Router> {}
           <Navbar theme={theme} setTheme={setTheme}  />
-          <div>
-            <Routes> {}
-              <Route path="/" element={<Home/>} />
-              <Route path="/user_list" element={<User_list/>} />
-              <Route path="/about" element={<About/>} />
-              <Route path="/Useful_link" element={<Useful_link/>} />
+          {
+            isLoggedIn ? ( 
+            <>
+              {/*<h2>歡迎回來！</h2>*/}
+              <div>
+                <Routes> {}
+                  <Route path="/" element={<Home/>} />
+                  <Route path="/user_list" element={<User_list/>} />
+                  <Route path="/about" element={<About/>} />
+                  <Route path="/Useful_link" element={<Useful_link/>} />
 
-              <Route path="/userCreate" element={<UserCreate/>} />
-              <Route path="/userForm" element={<UserForm />} />
+                  <Route path="/user_create" element={<UserCreate/>} />
+                  <Route path="/user_form" element={<UserForm />} />
 
-              <Route path="/login" element={<UserForm />} />
-            </Routes>
-          </div>
+                  <Route path="/login_page" element={<Login_page />} />
+                </Routes>
+              </div>
+          </>
+        )
+          : 
+        ( 
+          <>
+                {/*  
+                    <h2 style={{alignItems:'center'}}>請登錄</h2>
+                    <button onClick={() => {
+                    localStorage.setItem('token', 'your_token_here');
+                    handleLoginCheck(true);
+                    }}>登錄</button>
+                */ }
+                <Login_page />
+
+          </>
+            
+        )
+        }
         </Router>
-      {/*
-        
-              <link to="/" element={<Home/>} />
-              <link to="/User_list" element={<User_list/>} />
-              <link to="/About" element={<About/>} />
-              <link to="/Useful_link" element={<Useful_link/>} />
 
-      */
-      }
+        
+
       </div>
 
     </>
@@ -168,3 +134,7 @@ function App() {
 }
 
 export default App
+
+// 使用 createRoot 來渲染應用
+//const root = ReactDOM.createRoot(document.getElementById('root'));
+//root.render(<App />);

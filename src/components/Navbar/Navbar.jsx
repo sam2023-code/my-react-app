@@ -44,7 +44,7 @@ const Navbar = ( {theme, setTheme}  ) => {
 export default Navbar; 
 */
 
-import React from 'react';
+import React , {useState } from 'react';
 import './Navbar.css';
 import logo_baby from '../../assets/logo_baby.png'
 import search_icon_white from '../../assets/search_w.png'
@@ -54,17 +54,44 @@ import toggle_night from '../../assets/night.png'
 
 import { BrowserRouter  as Router, Routes, Route, Link } from 'react-router-dom'; 
 
+import Login_check from '../Login/Login_check.jsx';
 
 const Navbar = ( {theme, setTheme}  ) => {
 
-    const toggle_mode = () => {
+    // 使用自定義的 login check hook
+    /*
+  const [loginStatus, setLoginStatus] = useState(false);
+
+  const handleLoginCheck = (status) => {
+    setLoginStatus(status);
+  };
+  const isLoggedIn = Login_check(handleLoginCheck);
+  */
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // 检查登录状态
+
+    const toggle_mode = () => 
+    {
         theme == 'light' ? setTheme('dark') : setTheme('light') ;
     }
+
+    const handleLogout = () => 
+    {
+        if (isLoggedIn )
+        {
+          //localStorage.removeItem('token');
+          //handleLoginCheck(false);
+          localStorage.setItem('isLoggedIn', 'false');
+          window.location.reload();
+        }
+    };
 
   return (
     <>
     <div className='navbar'>
-      <img src={logo_baby} alt="" className='responsive-image logo' />
+      {/* <img src={logo_baby} alt="" className='responsive-image logo' />*/ }
+      <img src={logo_baby} alt="" 
+          onClick={ handleLogout }
+      className='responsive-image logo' />
       
       <ul>
         <li><Link to= "/">Home</Link></li>
