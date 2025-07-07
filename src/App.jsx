@@ -71,6 +71,7 @@ import './css/style.css'
 
 import React , { useEffect,useState } from 'react'
 import Navbar from './components/Navbar/Navbar.jsx'
+import Login from './navbar_pages/LoginPage.jsx'
 import Home from './navbar_pages/Home.jsx'
 import User_list from './navbar_pages/User_list.jsx'
 import About from './navbar_pages/About.jsx'
@@ -104,22 +105,25 @@ function App() {
 
   let Component;
   switch (window.location.pathname) {
+    case "/login":
+      Component = <Login />;
+      break;
     case "/":
       Component = <Home />;
       break;
-    case "/User_list":
+    case "/user_list":
       Component = <User_list />;
       break;
     case "/about":
       Component = <About />;
       break;
-    case "/Useful_link":
+    case "/useful_link":
       Component = <Useful_link />;
       break;
-    case "/UserCreate":
+    case "/userCreate":
       Component = <UserCreate />;
       break;
-    case "/UserForm":
+    case "/userForm":
       Component = <UserForm />;
       break;
     default:
@@ -137,12 +141,14 @@ function App() {
           <div>
             <Routes> {}
               <Route path="/" element={<Home/>} />
-              <Route path="/User_list" element={<User_list/>} />
-              <Route path="/About" element={<About/>} />
+              <Route path="/user_list" element={<User_list/>} />
+              <Route path="/about" element={<About/>} />
               <Route path="/Useful_link" element={<Useful_link/>} />
 
-              <Route path="/UserCreate" element={<UserCreate/>} />
-              <Route path="/UserForm" element={<UserForm />} />
+              <Route path="/userCreate" element={<UserCreate/>} />
+              <Route path="/userForm" element={<UserForm />} />
+
+              <Route path="/login" element={<UserForm />} />
             </Routes>
           </div>
         </Router>
