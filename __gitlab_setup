@@ -1,0 +1,37 @@
+1.Create GitLab-Runner folder
+    C:\Users\User\Desktop\GitLab-Runner
+2.Download GitLab-Runner.exe
+    https://docs.gitlab.com/runner/install/windows/
+3.Put the exe in folder and rename to GitLab-Runner.exe
+
+4.Open cmd in admin mode
+
+5.run command to install exe
+    .\gitlab-runner.exe install
+
+6.check installed version
+    .\gitlab-runner -v
+
+7.run command to register
+    .\gitlab-runner.exe register
+
+8.enter command     https://gitlab.com/
+    https://gitlab.com/
+
+9.Go to     https://gitlab.com/
+    Settings->CI/CD->Runner->Project runner->New project runner 
+        copy the token
+            glrt-23bIWH5LtyUsrOBRUKaHKG86MQpwOjE2amkyMQp0OjMKdTpoODl4Mxg.01.1j1j4mk92
+/*
+.\gitlab-runner.exe register  --url https://gitlab.com  --token glrt-23bIWH5LtyUsrOBRUKaHKG86MQpwOjE2amkyMQp0OjMKdTpoODl4Mxg.01.1j1j4mk92
+*/
+10.Enter a runner name
+    Window,devops
+
+11.Enter a executor
+    instance
+
+Finish!!
+
+Start Gitlab runner
+    gitlab runner start
