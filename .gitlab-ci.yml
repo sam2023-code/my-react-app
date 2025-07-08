@@ -1,0 +1,23 @@
+stages:
+  - build
+  - deploy
+
+# Build the Docker image
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - echo "Building the Docker image..."
+    - docker build -t my-react-app123 .
+
+# Deploy the Docker container
+deploy:
+  stage: deploy
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - echo "Deploying the Docker container..."
+    - docker run -d -p 80:80 --name my-react-app-container my-react-app123
