@@ -3,6 +3,8 @@ FROM nginx:alpine AS build
 WORKDIR /app
 COPY dist/ /usr/share/nginx/html
 COPY . ./
+#run build
+RUN npm run build
 
 # Stage 2 - the production environment
 FROM nginx:alpine AS production

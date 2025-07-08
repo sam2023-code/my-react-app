@@ -1,3 +1,8 @@
+Before GitLab
+    Install Git https://git-scm.com/downloads/win
+
+
+
 1.Create GitLab-Runner folder
     C:\Users\User\Desktop\GitLab-Runner
 2.Download GitLab-Runner.exe
@@ -35,3 +40,13 @@ Finish!!
 
 Start Gitlab runner
     gitlab runner start
+
+
+#Run the following commands to commit your changes
+cd C:\Users\User\Documents\GitHub\my-react-app
+git add .gitlab-ci.yml  # Stage the .gitlab-ci.yml file
+git commit -m "Add CI/CD pipeline"  # Commit with a message
+
+
+#Push Your Changes to GitLab
+git push origin main  # Replace 'main' with your branch name if different
