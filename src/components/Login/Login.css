@@ -1,0 +1,24 @@
+.login{
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+     /*background: #fff;*/
+}
+
+
+
+.login-container {
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+}
+
+
+.login-button{
+    display: flex;
+    align-items: center;
+    background: lightslategray; 
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+}

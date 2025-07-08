@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL, DEBUG_MODE } from '../../config';
 
@@ -24,8 +25,9 @@ const LoginPage = () => {
       const data = await response.text();
       setMessage(data); // 登入成功
       localStorage.setItem('isLoggedIn', 'true'); // 将登录状态设置为 true
+      navigate('/'); // 重定向到首頁
       window.location.reload();
-      //navigate('/'); // 重定向到首頁
+      
     } else {
       const error = await response.text();
       setMessage(error); // 登入失敗
@@ -33,11 +35,11 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <h2>登入</h2>
-      <form onSubmit={handleLogin}>
+    <div className='login'>
+      <div> <h2>Login</h2> </div>
+      <form className='login-container' onSubmit={handleLogin}>
         <div>
-          <label>用戶名：</label>
+          <label>User Name：</label>
           <input
             type="text"
             value={username}
@@ -46,7 +48,7 @@ const LoginPage = () => {
           />
         </div>
         <div>
-          <label>密碼：</label>
+          <label>Password：</label>
           <input
             type="password"
             value={password}
@@ -54,8 +56,10 @@ const LoginPage = () => {
             required
           />
         </div>
-        <button type="submit">登入</button>
+        <button className='login-button' type="submit"> Login </button>
       </form>
+      
+      <br/>
       {message && <p>{message}</p>}
     </div>
   );
