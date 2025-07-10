@@ -2,7 +2,18 @@ import React, { useEffect,useState , useRef } from 'react';
 import { Chart, registerables } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 
+import i18n_lang from '../i18n.jsx' ; // Import the i18n configuration
+import { useTranslation } from 'react-i18next';
+
+
 function Chart_func() {
+
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   const chartRef = useRef(null);
 
   const data = [
@@ -99,7 +110,7 @@ function Chart_func() {
     <>     
     <div>
       <h5> Chart.js </h5>
-      <h3> Jason's weight changes over the given time period </h3>
+      <h3>  {t('Navbar_about_page_title')} </h3>
       <div style={ {"maxWidth":"800px" , "padding":'20px' }  } >
         <canvas id="myChart" ></canvas>
       </div>

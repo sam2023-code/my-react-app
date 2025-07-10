@@ -15,6 +15,7 @@
     "chart.js": "^4.5.0",
     "chartjs-adapter-date-fns": "^3.0.0",
     "config": "^4.0.0",
+    "d3.js": "^0.0.2-security",
     "formik": "^2.4.6",
     "nginx": "^1.1.0",
     "react": "^19.1.0",

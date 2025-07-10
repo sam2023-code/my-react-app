@@ -16,9 +16,42 @@
 
 .login-button{
     display: flex;
-    align-items: center;
     background: lightslategray; 
-    padding: 10px 20px;
+    padding: 10px 30px;
     border-radius: 50px;
+    min-width: 100px; /* Minimum width of the image */
     cursor: pointer;
+
+    text-align: center;
+}
+
+.login-visitor{
+    display: flex;
+    background: lightslategray; 
+    padding: 10px 30px;
+    border-radius: 50px;
+    min-width: 100px; /* Minimum width of the image */
+    cursor: pointer;
+
+    text-align: center;
+}
+
+.login-title{
+    padding: 10px 20px;
+
+    max-width: 200px; /* Minimum width of the image */
+    max-height: 50px; /* Minimum height of the image */
+
+    min-width: 200px; /* Minimum width of the image */
+    min-height: 50px; /* Minimum height of the image */
+}
+
+.login-text{
+    padding: 10px 20px;
+
+    max-width: 140px; /* Minimum width of the image */
+    max-height: 50px; /* Minimum height of the image */
+
+    min-width: 140px; /* Minimum width of the image */
+    min-height: 50px; /* Minimum height of the image */
 }
