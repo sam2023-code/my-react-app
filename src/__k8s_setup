@@ -1,0 +1,23 @@
+
+download and run
+https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download
+
+
+minikube start
+
+kubectl get nodes
+
+
+https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download
+
+cd C:\Users\User\Documents\GitHub\my-react-app\
+kubectl create -f k8s_react.yml
+
+
+kubectl get deployments
+
+kubectl delete deployment react-frontend
+
+kubectl get services
+
+kubectl delete service react-frontend 

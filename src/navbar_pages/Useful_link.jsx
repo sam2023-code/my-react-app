@@ -82,6 +82,32 @@ const Useful_link = () => {
 		</a>
 	</div>
 
+	{
+	sessionStorage.getItem('login_type') === "user" ?
+		<>
+		<div className="single_row">
+			<a href="https://www.youtube.com/watch?v=RUjcGn2YeVo&t=267s" target="_blank">
+				K8s_1
+			</a>
+		</div>
+
+		<div className="single_row">
+			<a href="https://www.youtube.com/watch?v=892O6zG8VLA" target="_blank">
+				K8s_2
+			</a>
+		</div>
+		<div className="single_row">
+			<a href="https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download" target="_blank">
+				minikube
+			</a>
+		</div>
+
+		</>
+	:
+		<p> </p>
+	}
+
+
 
     </>
   );

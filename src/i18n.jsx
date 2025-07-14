@@ -1,4 +1,7 @@
 // src/i18n.js
+//npm install --global yarn
+//yarn add react-i18next i18next
+//yarn add date-fns
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
