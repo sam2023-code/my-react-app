@@ -50,3 +50,24 @@ git commit -m "Add CI/CD pipeline"  # Commit with a message
 
 #Push Your Changes to GitLab
 git push origin main  # Replace 'main' with your branch name if different
+
+
+
+
+#Add git ssh key
+open git bash
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-keygen -t rsa -b 4096 -C sam335211@gmail.com
+
+path
+/c/Users/User/.ssh/id_rsa
+
+passphase
+password
+
+
+cd /c/Users/User/.ssh/
+cat id_rsa.pub
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDdPKJglBfSwIc7p2BiVUc1enTqBGNe+HpU6Ao2vEmdW/gYPc9svt/gkd4NsFxl1RzJi8ZyZkZ0r1J6lzjr+EWRwtq5iPZDidMJPENqsHs++6gvRu/MidEJRb8F4LKNCTkVjkcGS17E/C8Xp2Jc+DXhU+16zAjwLrYZF48yDJB54Q8QK6NtT2m8wpQ7OWuKnW6bTkv41NVk7isjcBArM14eNXSGOsPMw8BMQhOzHB7eEGD1QJAR/nu+OqEMgI8ys+LAw2Jl1yD0IW3ru8LkWL6cqpB4cu4QmNKInKC3G+h6jzApJccphILElLPALgj/I8plJBpFvpzwcswhsDp3L4IRCMjPe6vbrqxGeVAAMRaNxd1NVPzU9v0AO/6ZD5hSi+7g2xtK70QuguhTr76dAh5cT9IwxoOE9Ud7HB8lafXftorfBKGyMTwBa8bBOXN6N4DiCaf17IVeWXkZUwGG2YcngFQZG+6HSTmdSKp/0Rb9/fgvHCrYvjrt0ot5V1iiOVZuw1Az4n1x7l8ywhWGelK2hR8Ua8qAZWH9FoRbM7eU2QEeMZZqSdp8XuAASl7VhEeYf+FGCl44EW4qiXQ40PyR4aK5mq5K5GYLkP93GmPDuz/nQWEV3YlahA7Rt9ShKoRQ3wOOho2uNZz+RD99T4rxpY0kVXqOfd/oxw8yjx5p4Q== sam335211@gmail.com
