@@ -2,6 +2,14 @@
 download and run
 https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download
 
+C:\Program Files\Kubernetes\Minikube
+
+$oldPath = [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine)
+if ($oldPath.Split(';') -inotcontains 'C:\minikube'){
+  [Environment]::SetEnvironmentVariable('Path', $('{0};C:\Program Files\Kubernetes\Minikube' -f $oldPath), [EnvironmentVariableTarget]::Machine)
+}
+
+
 
 minikube start
 
@@ -10,14 +18,22 @@ kubectl get nodes
 
 https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download
 
-cd C:\Users\User\Documents\GitHub\my-react-app\
-kubectl create -f k8s_react.yml
 
 
+
+cd C:/Users/User/Desktop/React_demo/my-react-app
+
+
+kubectl apply -f k8s_react.yaml
+kubectl port-forward service/react-frontend 3000:80
+
+//kubectl expose deployment react-frontend --type=NodePort --port=5050
+
+
+minikube service react-frontend --url
 kubectl get deployments
-
-kubectl delete deployment react-frontend
-
 kubectl get services
 
+
+kubectl delete deployment react-frontend
 kubectl delete service react-frontend 
