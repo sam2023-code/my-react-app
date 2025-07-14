@@ -1,7 +1,7 @@
 import logo_Home_Jason from '../assets/Home_Jason.png'
 import '../css/Home.css';
 
-import i18n_lang from '../i18n.jsx' ; // Import the i18n configuration
+import i18n from '../i18n.jsx' ; // Import the i18n configuration
 import { useTranslation } from 'react-i18next';
 
 function Home() { 

@@ -1,0 +1,83 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE = 'samchan930423/reactdocker:latest' // e.g., 'nginx:latest'
+        CONTAINER_NAME = 'Jenkins-react-container'
+    }
+
+    stages {
+        
+        stage('Stop Existing Container') 
+        {
+            steps {
+                script {
+                    // Define the name of the container you want to check
+                    def containerName = 'Jenkins-react-container' // Replace with your actual container name
+                    
+                    // Check if the container run
+                    def containerExists_run_output_file = 'stdout_run.out'
+                    bat(script: "docker ps --filter \"name=${containerName}\" --format \"{{.Names}}\" > ${containerExists_run_output_file} 2>&1")
+                    
+                    if (fileExists(containerExists_run_output_file)) {
+                        def containerExists_run_output = readFile(containerExists_run_output_file).trim()
+                        
+                        // Check if the container running
+                        if (!containerExists_run_output.isEmpty() && containerExists_run_output.contains(containerName)) {
+                            echo "Container running: '${containerExists_run_output}'"
+                            bat "docker stop ${containerName}"
+                        } else {
+                            echo "No container running with name: ${containerName}"
+                        }
+                    }
+                    else
+                    {
+                        error("Output file '${containerExists_run_output_file}' does not exist!")
+                    }
+                    
+                    
+                }
+            }
+        }
+        
+        stage('Remove Existing Container') 
+        {
+            steps {
+                script {
+                    // Define the name of the container you want to check
+                    def containerName = 'Jenkins-react-container' // Replace with your actual container name
+                    
+                    // Check if the container run
+                    def containerExists_output_file = 'stdout_exist.out'
+                    bat(script: "docker ps -a --filter \"name=${containerName}\" --format \"{{.Names}}\" > ${containerExists_output_file} 2>&1")
+                    
+                    if (fileExists(containerExists_output_file)) {
+                        def containerExists_output = readFile(containerExists_output_file).trim()
+                        
+                        // Check if the container running
+                        if (!containerExists_output.isEmpty() && containerExists_output.contains(containerName)) {
+                            echo "Container running: '${containerExists_output}'"
+                            bat "docker rm ${containerName}"
+                        } else {
+                            echo "No container exist with name: ${containerName}"
+                        }
+                    }
+                    else
+                    {
+                        error("Output file '${containerExists_run_output_file}' does not exist!")
+                    }
+
+
+                }
+            }
+        } // End stage('Remove Existing Container') 
+        
+        
+    } //End stage
+
+    post {
+        always {
+            echo "Jenkins pipeline completed."
+        }
+    }
+}

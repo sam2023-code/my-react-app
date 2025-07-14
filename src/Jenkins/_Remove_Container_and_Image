@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Remove Unused Docker Containers') {
+            steps {
+                script {
+                    // Remove all stopped containers
+                    bat 'docker container prune -f'
+                }
+            }
+        }
+
+        stage('Remove Unused Docker Images') {
+            steps {
+                script {
+                    // Remove all unused images
+                    bat 'docker image prune -a -f'
+                }
+            }
+        }
+
+        stage('Remove Unused Docker Volumes') {
+            steps {
+                script {
+                    // Remove all unused volumes
+                    bat 'docker volume prune -f'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "Cleanup of unused Docker containers, images, and volumes completed."
+        }
+    }
+}

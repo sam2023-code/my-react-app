@@ -1,0 +1,40 @@
+Jenkins.instance.getItemByFullName('React Build and Push Docker').builds.findAll { it.number > 1 && it.number < 1717 }.each { it.delete() }
+
+Jenkins.instance.getItemByFullName('React Pull and Run Docker').builds.findAll { it.number > 1 && it.number < 1717 }.each { it.delete() }
+
+Jenkins.instance.getItemByFullName('React Stop and Remove Docker').builds.findAll { it.number > 1 && it.number < 1717 }.each { it.delete() }
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Check for Port 8080') {
+            steps {
+                script {
+                    // Check for processes using port 8080
+                    def output = bat(script: 'netstat -ano | findstr :8080', returnStdout: true).trim()
+                    echo "Output from netstat:\n${output}"
+
+                    if (output) {
+                        // Extract the PID from the output
+                        def pid = output.split()[-1] // Get the last element which is the PID
+                        echo "Found process using port 8080 with PID: ${pid}"
+
+                        // Kill the process
+                        bat "taskkill /F /PID ${pid}"
+                        echo "Killed process with PID: ${pid}"
+                    } else {
+                        echo "No process is using port 8080."
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "Port 8080 check and cleanup completed."
+        }
+    }
+}
+

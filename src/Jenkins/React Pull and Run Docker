@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE = 'samchan930423/reactdocker:latest' // e.g., 'nginx:latest'
+        CONTAINER_NAME = 'Jenkins-react-container'
+    }
+
+    stages {
+        
+        stage('Pull Docker Image') {
+            steps {
+                script {
+                    // Use bat instead of sh for Windows
+                    bat "docker pull ${DOCKER_IMAGE}"
+                }
+            }
+        }
+
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    // Run the Docker container mapping port 80:80
+                    bat "docker run --name ${CONTAINER_NAME} -d -p 80:80 ${DOCKER_IMAGE}"
+                }
+            }
+        }
+
+        stage('Verify Container') {
+            steps {
+                script {
+                    // Verify that the container is running
+                    bat "docker ps | findstr ${CONTAINER_NAME}"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "Jenkins pipeline completed."
+        }
+    }
+}

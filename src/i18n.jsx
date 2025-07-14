@@ -1,108 +1,26 @@
-//npm install i18next react-i18next
-
-import React, { createContext, useState, useContext } from 'react';
+// src/i18n.js
 import i18n from 'i18next';
-import { initReactI18next, useTranslation } from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
+import HttpBackend from 'i18next-http-backend';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
-import './i18n.css';
-
-// Initialize i18next
 i18n
-  .use(initReactI18next)
+  .use(HttpBackend) // Load translations via HTTP
+  .use(LanguageDetector) // Detect language from localStorage or browser settings
+  .use(initReactI18next) // Integrate with React
   .init({
-    resources: {
-      en: { translation: 
-              { /* English translations */ 
-                hello: "Hello", 
-                Navbar_home : "Home",
-                Navbar_list : "List",
-                Navbar_about : "About",
-                Navbar_link : "Link",
-
-                Login_page_title : "Please login",
-                Login_page_username : "User Name：",
-                Login_page_password : "Password：",
-                Login_page_login_button : "Login",
-                Login_page_login_visitor : "Vistor Login",
-
-                Navbar_about_page_title : "Jason's weight changes over the given time period",
-                
-                Navbar_useful_link_page_title : "Useful_link" ,
-              } 
-          },
-      zh: { translation: 
-              { /* Chinese translations */ 
-                hello: "你好",
-                Navbar_home : "首頁",
-                Navbar_list : "列表",
-                Navbar_about : "關於",
-                Navbar_link : "連結",
-
-                Login_page_title : "請登入",
-                Login_page_username : "使用者名稱：",
-                Login_page_password : "密碼：",
-                Login_page_login_button : "登入",
-                Login_page_login_visitor : "訪客登入",
-
-                Navbar_about_page_title : "柏柏的重量變化",
-
-                Navbar_useful_link_page_title : "有用連結" ,
-              } 
-          }
+    lng: localStorage.getItem('language') || 'eng', // Default language (check localStorage first)
+    fallbackLng: 'eng', // Fallback language
+    backend: {
+      loadPath: '/locales/{{lng}}/translation.json', // Path to translation files
     },
-    lng: 'en', // Default language
-    fallbackLng: 'en', // Fallback language
-    interpolation: { escapeValue: false }
+    detection: {
+      order: ['localStorage', 'navigator'], // Check localStorage first, then browser settings
+      caches: ['localStorage'], // Cache the language in localStorage
+    },
+    interpolation: {
+      escapeValue: false, // React already escapes values
+    },
   });
 
-// Create a language context
-const LanguageContext = createContext();
-
-// Language provider component
-const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('en');
-
-  const toggleLanguage = () => {
-    const newLanguage = language === 'en' ? 'zh' : 'en';
-    setLanguage(newLanguage);
-    i18n.changeLanguage(newLanguage);
-  };
-
-  return (
-    <LanguageContext.Provider value={{ language, toggleLanguage }}>
-      {children}
-    </LanguageContext.Provider>
-  );
-};
-
-// Custom hook to access language context
-const useLanguage = () => useContext(LanguageContext);
-
-// Example component using language context
-const App = () => {
-  const { language, toggleLanguage } = useLanguage();
-  const { t } = useTranslation();
-
-  return (
-    <div>
-      {/* 
-          <h1>{t('welcome')}</h1>
-          <p>{t('description')}</p>
-      */}
-
-
-      <button onClick={toggleLanguage} className='i18-button'>
-        {language === 'en' ? '中文' : 'English'}
-      </button>
-    </div>
-  );
-};
-
-// Wrap the app with the language provider
-const i18_lang = () => (
-  <LanguageProvider>
-    <App />
-  </LanguageProvider>
-);
-
-export default i18_lang;
+export default i18n;

@@ -8,7 +8,7 @@ import About from './navbar_pages/About.jsx'
 import Useful_link from './navbar_pages/Useful_link.jsx'
 import UserCreate from './navbar_pages/UserCreate.jsx'
 import UserForm from './components/Userform/UserForm.jsx'
-
+import Diary from './navbar_pages/Diary.jsx'
 
 import Login_check from './components/Login/Login_check.jsx';
 import {Login_page , Dashboard} from './components/Login/Login_page.jsx';
@@ -18,6 +18,8 @@ import { useNavigate } from 'react-router-dom';
 
 import i18n_lang from './i18n.jsx' ; // Import the i18n configuration
 import { useTranslation } from 'react-i18next';
+
+
 
 const SESSION_TIMEOUT = 60 * 60 * 1000; // 3 minutes in milliseconds
 
@@ -74,6 +76,10 @@ function App() {
       Component = <Login_page />;
       break;
 
+    case "/diary":
+      Component = <Diary />;
+      break;
+
     default:
       Component = <NotFound />; // Optional: Handle unknown routes
       break;
@@ -112,6 +118,8 @@ function App() {
 
                   <Route path="/login_page" element={<Login_page />} />
                   <Route path="/dashboard" element={<Dashboard />} />
+
+                  <Route path="/diary" element={<Diary />} />
                 </Routes>
                 </SessionTimeoutHandler>
 

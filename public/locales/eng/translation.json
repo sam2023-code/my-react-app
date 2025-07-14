@@ -1,0 +1,18 @@
+{
+  "hello": "Wellcome",
+  "Navbar_home": "Home",
+  "Navbar_list": "List",
+  "Navbar_about": "About",
+  "Navbar_link": "Link",
+  "Navbar_diary": "Diary",
+  
+  "Login_page_title": "Please login",
+  "Login_page_username": "User Name：",
+  "Login_page_password": "Password：",
+  "Login_page_login_button": "Login",
+  "Login_page_login_visitor": "Visitor Login",
+  
+  "Navbar_about_page_title": "Jason's weight changes over the given time period",
+  
+  "Navbar_useful_link_page_title": "Useful link"
+}

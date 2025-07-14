@@ -1,0 +1,14 @@
+.i18-button {
+
+    max-width: 90px; /* Minimum width of the image */
+    max-height: 40px; /* Minimum height of the image */
+
+    min-width: 90px; /* Minimum width of the image */
+    min-height: 40px; /* Minimum height of the image */
+    
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+
+    border-radius: 50px;
+    cursor: pointer;
+}

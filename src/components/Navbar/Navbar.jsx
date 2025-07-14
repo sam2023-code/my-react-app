@@ -10,12 +10,13 @@ import { BrowserRouter  as Router, Routes, Route, Link } from 'react-router-dom'
 
 import Login_check from '../Login/Login_check.jsx';
 
-import I18_lang from '../../i18n.jsx';
+import  '../../i18n.jsx';
+import LanguageSwitcher from '../../LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
 
 const Navbar = ( {theme, setTheme}  ) => {
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -53,12 +54,14 @@ const Navbar = ( {theme, setTheme}  ) => {
             <li><Link to= "/user_list">{t('Navbar_list')}</Link></li>
             <li><Link to= "/about">{t('Navbar_about')}</Link></li>
             <li><Link to= "/useful_link">{t('Navbar_link')}</Link></li>
+            <li><Link to= "/diary">{t('Navbar_diary')}</Link></li>
           </ul>
         :
           <ul>
             <li><Link to= "/">{t('Navbar_home')}</Link></li>
             <li><Link to= "/about">{t('Navbar_about')}</Link></li>
             <li><Link to= "/useful_link">{t('Navbar_link')}</Link></li>
+            <li><Link to= "/diary">{t('Navbar_diary')}</Link></li>
           </ul>
       
       }
@@ -70,7 +73,7 @@ const Navbar = ( {theme, setTheme}  ) => {
         className="responsive-image" />
       </div>
       
-      <div className='I18-lang'> <I18_lang /> </div>
+      <div className='I18-lang'> <LanguageSwitcher /> </div>
 
       <img onClick ={() => toggle_mode() } 
         src={ theme == 'light'? toggle_day : toggle_night  } alt="" 

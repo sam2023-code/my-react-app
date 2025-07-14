@@ -2,7 +2,7 @@ import React, { useEffect,useState , useRef } from 'react';
 import { Chart, registerables } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 
-import i18n_lang from '../i18n.jsx' ; // Import the i18n configuration
+import i18n from '../i18n.jsx' ; // Import the i18n configuration
 import { useTranslation } from 'react-i18next';
 
 

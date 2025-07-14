@@ -47,8 +47,9 @@ body {
 
 
 .single_row {
-			float: left; /* Float the div to the left */
-            padding: 10px;
-			width: 100%;
-			border: 0px solid #ccc; /* Optional: for visual reference */
-        }
+
+  float: left; /* Float the div to the left */
+  width: 100%;
+  border: 0px solid #ccc; /* Optional: for visual reference */
+  padding: 10px 30px;
+}
