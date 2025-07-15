@@ -3,8 +3,8 @@ import '../css/diary.css'; // Make sure to import your CSS file
 
 
 import { useTranslation } from 'react-i18next';
-import YouTubePlayer from '../components/YoutuberPlayer.jsx';
-
+import YouTuberPlayer from '../components/YoutuberPlayer.jsx';
+import YouTuberPlayerR from '../components/YoutuberPlayerR.jsx';
 
 const Diary = () => {
 
@@ -21,7 +21,7 @@ const Diary = () => {
 
     <div className='diary-video'>
       <h1></h1>
-      <YouTubePlayer videoId={videoId} />
+      <YouTuberPlayerR videoId={videoId} />
     </div>
 
       );

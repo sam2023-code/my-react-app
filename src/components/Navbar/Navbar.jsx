@@ -5,10 +5,16 @@ import search_icon_white from '../../assets/search_w.png'
 import search_icon_black from '../../assets/search_b.png'
 import toggle_day from '../../assets/day.png'
 import toggle_night from '../../assets/night.png'
+import logout from '../../assets/logout.png'
 
 import { BrowserRouter  as Router, Routes, Route, Link } from 'react-router-dom'; 
 
 import Login_check from '../Login/Login_check.jsx';
+import SearchComponent from '../Search/SearchComponent.jsx';
+
+import SubDropdownMenu from './SubDropdownMenu.jsx';
+import SubNormalMenu from './SubNormalMenu.jsx';
+import ResponsiveComponent from './ResponsiveComponent.jsx';
 
 import  '../../i18n.jsx';
 import LanguageSwitcher from '../../LanguageSwitcher';
@@ -44,27 +50,18 @@ const Navbar = ( {theme, setTheme}  ) => {
     <>
     <div className='navbar'>
       {/* <img src={logo_baby} alt="" className='responsive-image logo' />*/ }
-      <img src={logo_baby} alt="" 
-          onClick={ handleLogout }
-      className='responsive-image logo' />
-      
-      {login_user_or_visitor === "user" ?
-          <ul>
-            <li><Link to= "/">{t('Navbar_home')} </Link></li>
-            <li><Link to= "/user_list">{t('Navbar_list')}</Link></li>
-            <li><Link to= "/about">{t('Navbar_about')}</Link></li>
-            <li><Link to= "/useful_link">{t('Navbar_link')}</Link></li>
-            <li><Link to= "/diary">{t('Navbar_diary')}</Link></li>
-          </ul>
+      <img src={logo_baby} alt="" className='responsive-image logo' />
+
+      {isLoggedIn ?
+            <>
+                <img src={logout} alt="" onClick={ handleLogout } className='responsive-image logo' />
+            </>
         :
-          <ul>
-            <li><Link to= "/">{t('Navbar_home')}</Link></li>
-            <li><Link to= "/about">{t('Navbar_about')}</Link></li>
-            <li><Link to= "/useful_link">{t('Navbar_link')}</Link></li>
-            <li><Link to= "/diary">{t('Navbar_diary')}</Link></li>
-          </ul>
-      
+            <></>
       }
+      
+      <ResponsiveComponent/>
+
       
       <div className='search-box'>
         <input type='text' placeholder='Search' />
@@ -72,7 +69,7 @@ const Navbar = ( {theme, setTheme}  ) => {
         alt="" 
         className="responsive-image" />
       </div>
-      
+
       <div className='I18-lang'> <LanguageSwitcher /> </div>
 
       <img onClick ={() => toggle_mode() } 

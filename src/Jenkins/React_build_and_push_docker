@@ -11,7 +11,10 @@ pipeline {
          stage('Install Dependencies') {
             steps {
                 script {
-                    dir('C:/Users/User/Desktop/React_demo/my-react-app') {bat 'npm install'}
+                    dir('C:/Users/User/Desktop/React_demo/my-react-app') 
+                        {
+                            bat 'npm install --legacy-peer-deps'
+                        }
                 }
             }
         }
