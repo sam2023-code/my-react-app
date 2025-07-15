@@ -5,7 +5,7 @@ import search_icon_white from '../../assets/search_w.png'
 import search_icon_black from '../../assets/search_b.png'
 import toggle_day from '../../assets/day.png'
 import toggle_night from '../../assets/night.png'
-import logout from '../../assets/logout.png'
+import logo_logout from '../../assets/logout.png'
 
 import { BrowserRouter  as Router, Routes, Route, Link } from 'react-router-dom'; 
 
@@ -54,13 +54,13 @@ const Navbar = ( {theme, setTheme}  ) => {
 
       {isLoggedIn ?
             <>
-                <img src={logout} alt="" onClick={ handleLogout } className='responsive-image logo' />
+                <img src={logo_logout} alt="" onClick={ handleLogout } className='responsive-image logo' />
             </>
         :
             <></>
       }
-      
-      <ResponsiveComponent/>
+
+      <div className='navbar-list'> <ResponsiveComponent/> </div>
 
       
       <div className='search-box'>
@@ -70,7 +70,11 @@ const Navbar = ( {theme, setTheme}  ) => {
         className="responsive-image" />
       </div>
 
+
+
       <div className='I18-lang'> <LanguageSwitcher /> </div>
+  
+
 
       <img onClick ={() => toggle_mode() } 
         src={ theme == 'light'? toggle_day : toggle_night  } alt="" 

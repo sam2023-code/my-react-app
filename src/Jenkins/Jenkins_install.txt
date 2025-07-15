@@ -1,0 +1,24 @@
+
+Require jdk21
+java jdk 21
+https://www.oracle.com/java/technologies/downloads/#jdk21-windows
+x64 MSI Installer
+
+********Important environment variable
+path-> add C:\Program Files\Java\jdk-21
+
+tutorial
+https://www.youtube.com/watch?v=Zdxko2bPAAw
+https://www.youtube.com/watch?v=taJAfnFFdOE
+
+Jenkins download
+https://www.jenkins.io/download/thank-you-downloading-windows-installer-stable/
+
+
+Run as localsystem
+C:\Program Files\Java\jdk-21\
+
+firewall--will install on local hard drive
+
+C:\ProgramData\Jenkins\.jenkins\secrets\
+Install suggested plugin

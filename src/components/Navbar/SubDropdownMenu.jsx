@@ -16,7 +16,7 @@ const DropdownMenu = () => {
   return (
     <div className="dropdown">
       <button className="dropbtn" onClick={toggleDropdown}>
-        Sub-pages
+         {t('Navbar_sub_page')}  
         <i className="fa fa-caret-down"></i>
       </button>
       {isOpen && (

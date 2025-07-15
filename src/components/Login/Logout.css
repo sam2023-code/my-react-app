@@ -1,3 +1,16 @@
+.responsive-image {
+    max-width: 10%; /* Maximum width of the image */
+    max-height: 10%; /* Maximum height of the image */
+    max-width: 50px; /* Minimum width of the image */
+    max-height: 50px; /* Minimum height of the image */
+
+    min-width: 50px; /* Minimum width of the image */
+    min-height: 50px; /* Minimum height of the image */
+    
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -6,14 +19,9 @@
 .dropbtn {
   background-color: lightsalmon;
   color: white;
-  padding: 5px;
+  padding: 16px;
   font-size: 16px;
-  
   min-width: 120px;
-  min-height: 40px; 
-  max-width: 120px;
-  max-height: 40px; 
-
   border: none;
   cursor: pointer;
 }

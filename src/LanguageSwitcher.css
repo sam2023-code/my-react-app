@@ -1,9 +1,9 @@
 .i18-button {
 
-    max-width: 90px; /* Minimum width of the image */
+    max-width: 70px; /* Minimum width of the image */
     max-height: 40px; /* Minimum height of the image */
 
-    min-width: 90px; /* Minimum width of the image */
+    min-width: 70px; /* Minimum width of the image */
     min-height: 40px; /* Minimum height of the image */
     
     width: auto; /* Maintain aspect ratio */

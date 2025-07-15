@@ -15,7 +15,7 @@ const LanguageSwitcher = () => {
 
   return (
     <button onClick={toggleLanguage} className='i18-button'>
-      {currentLanguage === 'eng' ? 'Switch to 中文' : '切换到 English'}
+      {currentLanguage === 'eng' ? '中文' : 'English'}
     </button>
   );
 };
