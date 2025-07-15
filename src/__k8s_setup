@@ -19,8 +19,11 @@ if ($oldPath.Split(';') -inotcontains 'C:\minikube'){
   [Environment]::SetEnvironmentVariable('Path', $('{0};C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Kubernetes' -f $oldPath), [EnvironmentVariableTarget]::Machine)
 }
 
-
+cd C:/Users/User/Desktop/React_demo/my-react-app
+cd C:\Users\User\Documents\GitHub\my-react-app
 minikube start
+minikube stop
+minikube delete
 
 kubectl get nodes
 
