@@ -3,9 +3,10 @@
   "Navbar_sub_page": "分頁",
   "Navbar_home": "首頁",
   "Navbar_list": "列表",
-  "Navbar_about": "關於",
+  "Navbar_about": "重量變化",
   "Navbar_link": "連結",
   "Navbar_diary": "柏柏日記",
+  "Navbar_vaccine": "疫苗記錄",
   
   "Login_page_title": "請登入",
   "Login_page_username": "使用者名稱：",
@@ -15,5 +16,11 @@
   
   "Navbar_about_page_title": "柏柏的重量變化",
   
-  "Navbar_useful_link_page_title": "有用連結"
+  "Navbar_useful_link_page_title": "有用連結",
+
+  "Navbar_vaccine_page_title": "疫苗記錄",
+  "Navbar_vaccine_page_date": "疫苗日期",
+  "Navbar_vaccine_page_vaccine": "疫苗記錄",
+  
+  "End": ""
 }

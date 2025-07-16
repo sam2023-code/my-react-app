@@ -9,6 +9,7 @@ import Useful_link from './navbar_pages/Useful_link.jsx'
 import UserCreate from './navbar_pages/UserCreate.jsx'
 import UserForm from './components/Userform/UserForm.jsx'
 import Diary from './navbar_pages/Diary.jsx'
+import Vaccine from './navbar_pages/Vaccine.jsx'
 import NotFound from './navbar_pages/NotFound.jsx'
 
 import Login_check from './components/Login/Login_check.jsx';
@@ -81,6 +82,10 @@ function App() {
       Component = <Diary />;
       break;
 
+    case "/vaccine":
+      Component = <Vaccine />;
+      break;
+
     default:
       Component = <NotFound />; // Optional: Handle unknown routes
       break;
@@ -119,7 +124,9 @@ function App() {
                   <Route path="/login_page" element={<Login_page />} />
                   <Route path="/dashboard" element={<Dashboard />} />
 
-                  <Route path="/diary" element={<Diary />} />
+                  <Route path="/diary/" element={<Diary />} />
+                  <Route path="/diary/:id" element={<Diary />} />
+                  <Route path="/vaccine" element={<Vaccine />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>

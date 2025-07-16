@@ -3,10 +3,11 @@
   "Navbar_sub_page": "Sub-pages",
   "Navbar_home": "Home",
   "Navbar_list": "List",
-  "Navbar_about": "About",
+  "Navbar_about": "Weight",
   "Navbar_link": "Link",
   "Navbar_diary": "Diary",
-  
+  "Navbar_vaccine": "Vaccine",
+
   "Login_page_title": "Please login",
   "Login_page_username": "User Name：",
   "Login_page_password": "Password：",
@@ -15,5 +16,11 @@
   
   "Navbar_about_page_title": "Jason's weight changes over the given time period",
   
-  "Navbar_useful_link_page_title": "Useful link"
+  "Navbar_useful_link_page_title": "Useful link",
+
+  "Navbar_vaccine_page_title": "Vaccine Record",
+  "Navbar_vaccine_page_date": "Date",
+  "Navbar_vaccine_page_vaccine": "Vaccine",
+
+  "End": ""
 }

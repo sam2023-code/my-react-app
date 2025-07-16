@@ -11,16 +11,18 @@ return (
     <>
               {sessionStorage.getItem('login_type')  === "user" ?
                   <ul>
-                    <li><Link to= "/user_list">{t('Navbar_list')}</Link></li>
                     <li><Link to= "/about">{t('Navbar_about')}</Link></li>
-                    <li><Link to= "/useful_link">{t('Navbar_link')}</Link></li>
+                    <li><Link to= "/vaccine">{t('Navbar_vaccine')}</Link></li>
                     <li><Link to= "/diary">{t('Navbar_diary')}</Link></li>
+                    <li><Link to= "/useful_link">{t('Navbar_link')}</Link></li>
+                    <li><Link to= "/user_list">{t('Navbar_list')}</Link></li>
                   </ul>
                 :
                   <ul>
                     <li><Link to= "/about">{t('Navbar_about')}</Link></li>
-                    <li><Link to= "/useful_link">{t('Navbar_link')}</Link></li>
+                    <li><Link to= "/vaccine">{t('Navbar_vaccine')}</Link></li>
                     <li><Link to= "/diary">{t('Navbar_diary')}</Link></li>
+                    <li><Link to= "/useful_link">{t('Navbar_link')}</Link></li>
                   </ul>
               
               }
