@@ -13,6 +13,8 @@
     min-width: 50px; /* Minimum width of the image */
     min-height: 50px; /* Minimum height of the image */
     
+    padding: 0px 0px 5px 5px ;
+
     width: auto; /* Maintain aspect ratio */
     height: auto; /* Maintain aspect ratio */
 }

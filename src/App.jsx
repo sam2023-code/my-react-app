@@ -9,6 +9,7 @@ import Useful_link from './navbar_pages/Useful_link.jsx'
 import UserCreate from './navbar_pages/UserCreate.jsx'
 import UserForm from './components/Userform/UserForm.jsx'
 import Diary from './navbar_pages/Diary.jsx'
+import NotFound from './navbar_pages/NotFound.jsx'
 
 import Login_check from './components/Login/Login_check.jsx';
 import {Login_page , Dashboard} from './components/Login/Login_page.jsx';
@@ -102,14 +103,13 @@ function App() {
                 <SessionTimeoutHandler>
                 <Routes> 
                   <Route path="/" element={<Home/>} />
-
-
                 {
                   login_user_or_visitor == "user" ?
                     <Route path="/user_list" element={<User_list/>} />
                   :
                     <Route path="/user_list" element={<Login_page/>} />
                 }
+                
                   <Route path="/about" element={<About/>} />
                   <Route path="/Useful_link" element={<Useful_link/>} />
 
@@ -120,11 +120,11 @@ function App() {
                   <Route path="/dashboard" element={<Dashboard />} />
 
                   <Route path="/diary" element={<Diary />} />
+
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
+                
                 </SessionTimeoutHandler>
-
-
-
               </div>
           </>
         )

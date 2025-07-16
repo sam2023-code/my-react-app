@@ -9,21 +9,22 @@ import logo_logout from '../../assets/logout.png'
 
 import { BrowserRouter  as Router, Routes, Route, Link } from 'react-router-dom'; 
 
-import Login_check from '../Login/Login_check.jsx';
 import SearchComponent from '../Search/SearchComponent.jsx';
 
-import SubDropdownMenu from './SubDropdownMenu.jsx';
-import SubNormalMenu from './SubNormalMenu.jsx';
 import ResponsiveComponent from './ResponsiveComponent.jsx';
 
 import  '../../i18n.jsx';
 import LanguageSwitcher from '../../LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
 
+import { useNavigate } from 'react-router-dom';
+
 const Navbar = ( {theme, setTheme}  ) => {
 
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
+  
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
@@ -42,7 +43,17 @@ const Navbar = ( {theme, setTheme}  ) => {
         {
           sessionStorage.clear(); // Clear session data
           sessionStorage.setItem('isLoggedIn', 'false');
+          navigate('/');
           window.location.reload();
+        }
+    };
+
+    const handleHomepage = () => 
+    {
+        if (isLoggedIn & location.pathname !== '/' )
+        {
+          navigate('/');
+          //window.location.reload();
         }
     };
 
@@ -50,17 +61,15 @@ const Navbar = ( {theme, setTheme}  ) => {
     <>
     <div className='navbar'>
       {/* <img src={logo_baby} alt="" className='responsive-image logo' />*/ }
-      <img src={logo_baby} alt="" className='responsive-image logo' />
+      <img src={logo_baby} onClick={ handleHomepage } alt="" className='responsive-image logo' />
 
-      {isLoggedIn ?
-            <>
-                <img src={logo_logout} alt="" onClick={ handleLogout } className='responsive-image logo' />
-            </>
-        :
+
+          {1 ?
+                <div className='navbar-list'> <ResponsiveComponent/> </div>
+            :
             <></>
-      }
+          }
 
-      <div className='navbar-list'> <ResponsiveComponent/> </div>
 
       
       <div className='search-box'>
@@ -71,15 +80,14 @@ const Navbar = ( {theme, setTheme}  ) => {
       </div>
 
 
+      {isLoggedIn ?
+            <img src={logo_logout} alt="" onClick={ handleLogout } className='responsive-image logo' />
+        :
+            <></>
+      }
 
-      <div className='I18-lang'> <LanguageSwitcher /> </div>
+      <div className='I18-lang' style={{    float: 'right'   }}    > <LanguageSwitcher /> </div>
   
-
-
-      <img onClick ={() => toggle_mode() } 
-        src={ theme == 'light'? toggle_day : toggle_night  } alt="" 
-        className='responsive-image toggle-icon' 
-      />
 
     </div> 
     </>
