@@ -35,7 +35,6 @@ const Login_page = () => {
       setMessage(data); // 登入成功
       //localStorage.setItem('isLoggedIn', 'true'); // 将登录状态设置为 true
 
-
       const loginTimestamp = Date.now();
       sessionStorage.setItem('loginTimestamp', loginTimestamp);
       sessionStorage.setItem('isLoggedIn', true);
@@ -51,7 +50,15 @@ const Login_page = () => {
   };
 
   const vistor_login = () => {
-  
+
+      fetch(API_BASE_URL + "/api/login-logs/visitor", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+    })
+
       const loginTimestamp = Date.now();
       sessionStorage.setItem('loginTimestamp', loginTimestamp);
       sessionStorage.setItem('isLoggedIn', true);
