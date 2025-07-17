@@ -39,6 +39,7 @@ const Login_page = () => {
       sessionStorage.setItem('loginTimestamp', loginTimestamp);
       sessionStorage.setItem('isLoggedIn', true);
       sessionStorage.setItem('login_type', "user");
+      sessionStorage.setItem('login_username', username);
 
       navigate('/'); // 重定向到首頁
       window.location.reload();

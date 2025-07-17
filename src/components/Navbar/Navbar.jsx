@@ -42,7 +42,7 @@ const Navbar = ( {theme, setTheme}  ) => {
         if (isLoggedIn )
         {
           sessionStorage.clear(); // Clear session data
-          sessionStorage.setItem('isLoggedIn', 'false');
+          sessionStorage.setItem('isLoggedIn', false);
           navigate('/');
           window.location.reload();
         }

@@ -4,6 +4,10 @@ import './SubDropdownMenu.css';
 
 import { useTranslation } from 'react-i18next';
 
+import Subpage_list_admin from './Subpage_list_admin.jsx'
+import Subpage_list_user from './Subpage_list_user.jsx'
+import Subpage_list_visitor from './Subpage_list_visitor.jsx'
+
 const DropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -37,25 +41,19 @@ const DropdownMenu = () => {
       {isOpen && (
         <div className="dropdown-content">
 
-                    {sessionStorage.getItem('login_type')  === "user" ?
-                        <ul>
-                          <li><Link to= "/">{t('Navbar_home')}</Link></li>
-                          <li><Link to= "/about">{t('Navbar_about')}</Link></li>
-                          <li><Link to= "/vaccine">{t('Navbar_vaccine')}</Link></li>
-                          <li><Link to= "/diary">{t('Navbar_diary')}</Link></li>
-                          <li><Link to= "/useful_link">{t('Navbar_link')}</Link></li>
-                          
-                          <li><Link to= "/user_list">{t('Navbar_list')}</Link></li>
-                        </ul>
+
+
+                    {sessionStorage.getItem('isLoggedIn') === 'true' ?
+
+                        sessionStorage.getItem('login_username')  === "admin" ?
+                        <Subpage_list_admin />
+                        :
+                          sessionStorage.getItem('login_type')  === "user" ?
+                          <Subpage_list_user />
+                          :
+                          <Subpage_list_visitor/>
                       :
-                        <ul>
-                          <li><Link to= "/">{t('Navbar_home')}</Link></li>
-                          <li><Link to= "/about">{t('Navbar_about')}</Link></li>
-                          <li><Link to= "/vaccine">{t('Navbar_vaccine')}</Link></li>
-                          <li><Link to= "/diary">{t('Navbar_diary')}</Link></li>
-                          <li><Link to= "/useful_link">{t('Navbar_link')}</Link></li>
-                        </ul>
-                    
+                      <></>
                     }
 
         </div>

@@ -15,7 +15,7 @@ function Home() {
 
   return (
     <>
-      <h1>{t('hello')}</h1>
+
       <img src={logo_Home_Jason} alt="" className='logo_Home_Jason' />
     </>
   );

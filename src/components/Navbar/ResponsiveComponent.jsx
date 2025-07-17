@@ -20,7 +20,7 @@ const ResponsiveComponent = () => {
 
   return (
     <div>
-      {screenWidth > 700 ? (
+      {screenWidth > 900 ? (
         <div>
               <SubNormalMenu />
         </div>

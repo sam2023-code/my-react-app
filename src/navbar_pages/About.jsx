@@ -120,7 +120,7 @@ function Chart_func() {
 
     <>     
     <div>
-      <h5> Chart.js </h5>
+      <h5> </h5>
       <h3>  {t('Navbar_about_page_title')} </h3>
       <div style={ 
                     {"minWidth":"300px" 
