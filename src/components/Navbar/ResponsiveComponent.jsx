@@ -22,11 +22,11 @@ const ResponsiveComponent = () => {
     <div>
       {screenWidth > 900 ? (
         <div>
-              <SubNormalMenu />
+              {sessionStorage.getItem('isLoggedIn') === 'true' ? <SubNormalMenu /> : <></> }
         </div>
       ) : (
         <div>
-              <SubDropdownMenu />
+              {sessionStorage.getItem('isLoggedIn') === 'true' ? <SubDropdownMenu /> : <></> }
         </div>
       )}
     </div>

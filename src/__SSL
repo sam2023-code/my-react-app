@@ -1,0 +1,44 @@
+# For Amazon Linux:
+sudo yum update -y
+sudo yum install certbot
+sudo yum install certbot-nginx
+#nano /etc/nginx/nginx.conf
+# replace example.come to www.jasonpakpak0423.com
+# add 
+#listen 443 ssl;
+sudo certbot --nginx -d www.jasonpakpak0423.com
+
+https://www.youtube.com/watch?v=8QolpdurVSE&ab_channel=vlogommentary
+
+        location / {
+            root /usr/share/nginx/html;
+            index index.html;
+        }
+
+				replace to
+
+				return 301 https://$server_name$request_uri;
+
+sudo nginx -t # check status
+
+
+
+
+#Successfully received certificate.
+#Certificate is saved at: /etc/letsencrypt/live/www.jasonpakpak0423.com/fullchain.pem
+#Key is saved at:         /etc/letsencrypt/live/www.jasonpakpak0423.com/privkey.pem
+
+
+
+sudo crontab -e
+0 */12 * * * certbot renew --quiet
+sudo certbot renew --dry-run
+
+sudo systemctl status nginx.service
+
+
+sudo systemctl stop nginx
+sudo systemctl start nginx
+sudo systemctl reload nginx
+
+docker run -d -p 80:80 -p 443:443  samchan930423/reactdocker:latest

@@ -70,7 +70,6 @@ const Login_page = () => {
   };
 
 
-
   return (
     <div className='login'>
       <div className='login-title'> <h2>{t('Login_page_title')}</h2> </div>

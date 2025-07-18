@@ -1,5 +1,10 @@
-CREATE OR REPLACE FUNCTION fetch_top_10_login_logs()
-RETURNS TABLE (
+-- FUNCTION: public.fetch_top_10_login_logs()
+
+-- DROP FUNCTION IF EXISTS public.fetch_top_10_login_logs();
+
+CREATE OR REPLACE FUNCTION public.fetch_top_10_login_logs()
+RETURNS TABLE
+(
     id INT,
     usertype VARCHAR,
     username VARCHAR,
@@ -9,15 +14,19 @@ RETURNS TABLE (
 BEGIN
     RETURN QUERY
     SELECT 
-        id, 
-        usertype, 
-        username, 
-        login_datetime, 
-        TO_CHAR(login_datetime, 'YYYY-MM-DD HH24:MI:SS') AS login_datetime_string
+        ll.id, 
+        ll.usertype, 
+        ll.username, 
+        ll.login_datetime, 
+        TO_CHAR(ll.login_datetime, 'YYYY-MM-DD HH24:MI:SS')::VARCHAR  AS login_datetime_string
     FROM 
-        login_log
+        login_log ll
     ORDER BY 
-        id DESC
-    LIMIT 10;
+        ll.id DESC
+    LIMIT 100;
 END;
 $$ LANGUAGE plpgsql;
+
+ALTER FUNCTION public.fetch_top_10_login_logs()
+    OWNER TO postgres;
+

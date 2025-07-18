@@ -29,11 +29,10 @@ const LoginLogTable = () => {
 
     return (
         <div>
-            <h1>Top 10 Login Logs</h1>
+            <h1>Login Logs</h1>
             <table border="1" className="table">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>User Type</th>
                         <th>Username</th>
                         
@@ -43,7 +42,7 @@ const LoginLogTable = () => {
                 <tbody>
                     {sortedLoginLogs.map(log => (
                         <tr key={log.id}>
-                            <td>{log.id}</td>
+                            
                             <td>{log.usertype}</td>
                             <td>{log.username}</td>
                             

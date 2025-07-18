@@ -1,5 +1,5 @@
 import logo_Home_Jason from '../assets/Home_Jason.png'
-import '../css/Home.css';
+import '../css/home.css';
 
 import i18n from '../i18n.jsx' ; // Import the i18n configuration
 import { useTranslation } from 'react-i18next';
@@ -12,10 +12,9 @@ function Home() {
     i18n.changeLanguage(lng);
   };
 
-
   return (
     <>
-
+      <h3 style={{minHeight: '50px'}}> {t('hello')} </h3>
       <img src={logo_Home_Jason} alt="" className='logo_Home_Jason' />
     </>
   );
