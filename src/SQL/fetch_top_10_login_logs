@@ -1,0 +1,23 @@
+CREATE OR REPLACE FUNCTION fetch_top_10_login_logs()
+RETURNS TABLE (
+    id INT,
+    usertype VARCHAR,
+    username VARCHAR,
+    login_datetime TIMESTAMP,
+    login_datetime_string VARCHAR
+) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT 
+        id, 
+        usertype, 
+        username, 
+        login_datetime, 
+        TO_CHAR(login_datetime, 'YYYY-MM-DD HH24:MI:SS') AS login_datetime_string
+    FROM 
+        login_log
+    ORDER BY 
+        id DESC
+    LIMIT 10;
+END;
+$$ LANGUAGE plpgsql;
