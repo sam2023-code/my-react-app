@@ -42,3 +42,13 @@ sudo systemctl start nginx
 sudo systemctl reload nginx
 
 docker run -d -p 80:80 -p 443:443  samchan930423/reactdocker:latest
+
+sudo su
+cd /etc/letsencrypt/live/www.jasonpakpak0423.com/
+openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name tomcat -CAfile chain.pem -caname root`
+password
+ls
+chmod 400 C:/Users/User/DownloadsLinux_1.pem
+scp -v -i C:/Users/User/Downloads/Linux_1.pem ec2-user@ec2-52-0-45-228.compute-1.amazonaws.com:/etc/letsencrypt/live/www.jasonpakpak0423.com/keystore.p12 C:/Users/User/Downloads/
+
+sftp -i C:/Users/User/Downloads/Linux_1.pem ec2-user@ec2-52-0-45-228.compute-1.amazonaws.com

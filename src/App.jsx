@@ -118,7 +118,6 @@ function App() {
                   :
                     <Route path="/user_list" element={<Login_page/>} />
                 }
-                
                   <Route path="/about" element={<About/>} />
                   <Route path="/Useful_link" element={<Useful_link/>} />
 
