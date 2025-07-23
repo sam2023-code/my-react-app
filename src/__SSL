@@ -45,7 +45,7 @@ docker run -d -p 80:80 -p 443:443  samchan930423/reactdocker:latest
 
 sudo su
 cd /etc/letsencrypt/live/www.jasonpakpak0423.com/
-openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name tomcat -CAfile chain.pem -caname root`
+'openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name tomcat -CAfile chain.pem -caname root`
 password
 ls
 chmod 400 C:/Users/User/DownloadsLinux_1.pem
