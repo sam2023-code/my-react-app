@@ -25,6 +25,13 @@ CREATE TABLE login_log (
     login_datetime TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE login_log (
+    id SERIAL PRIMARY KEY,
+    usertype VARCHAR(50),
+	username VARCHAR(50),
+    login_datetime TIMESTAMP DEFAULT NOW()
+);
+
 ALTER TABLE IF EXISTS public.employees
     ADD COLUMN islocked VARCHAR(10);
 */
