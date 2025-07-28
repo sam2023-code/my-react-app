@@ -132,7 +132,7 @@ const Dashboard = () => {
         console.log(elapsedTime - SESSION_TIMEOUT)
 
         if (elapsedTime > SESSION_TIMEOUT) {
-          alert('Session expired. Redirecting to login page...');
+          //alert('Session expired. Redirecting to login page...');
           sessionStorage.clear(); // Clear session data
           navigate('/login'); // Redirect to login page
         }

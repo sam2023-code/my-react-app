@@ -66,7 +66,9 @@ const Vaccine = () => {
         { id: 17,id_loc: '', vaccine: '麻疹、流行性腮腺炎及德國麻疹混合疫苗 第一劑', date: '2025-04-24' },
         { id: 18,id_loc: '', vaccine: '水痘疫苗 第一劑', date: '2025-04-24' },
         { id: 1010,id_loc: '', vaccine: '', date: '' },
-        { id: 19,id_loc: '11. FHS', vaccine: '---  2:15 PM  ---', date: '2025-10-28' },
+        { id: 19,id_loc: '11. TST', vaccine: '---  3:00 PM  ---', date: '2025-10-22' },
+        { id: 1011,id_loc: '', vaccine: '', date: '' },
+        { id: 20,id_loc: '12. FHS', vaccine: '---  2:15 PM  ---', date: '2025-10-28' },
     ];
 
   return (

@@ -15,8 +15,9 @@ const Diary_1_item_bicycle = () => {
     return (
             <div className=''>
                   <div className='diary-video'>
-                    <h3>第一次踏單車</h3>
-                    <YouTuberPlayerR videoId={videoId} />
+                        <h3>第一次踏單車</h3>
+                        <p>2025-06-28</p>
+                        <YouTuberPlayerR videoId={videoId} />
                   </div>
             </div>
       );
@@ -26,13 +27,33 @@ const Diary_2_item_juice = () => {
     const videoId = 'qxUkgpA3WO0';
     return (
             <div className=''>
+                  <h3>自己飲果汁</h3>
                   <div className='diary-video'>
-                    <h3>自己飲果汁</h3>
-                    <YouTuberPlayerR videoId={videoId} />
+                        <YouTuberPlayerR videoId={videoId} />
                   </div>
             </div>
       );
 
+}
+
+const Diary_250705_item_ferry = () => {
+    return (
+            <div className=''>
+                  <h3>第一次坐船</h3>
+                  <p>2025-07-05</p>
+                  <div className='diary-video'><YouTuberPlayerR videoId={'C2s4KQ5e9zM'} /></div>
+            </div>
+      );
+}
+
+const Diary_250725_item_jumpin = () => {
+    return (
+            <div className=''>
+                  <h3>第一次波波池</h3>
+                  <p>2025-07-25</p>
+                  <div className='diary-video'><YouTuberPlayerR videoId={'oSm7aDmQW_8'} /></div>
+            </div>
+      );
 }
 
 
@@ -47,6 +68,9 @@ const Diary = () => {
     1: { name: 'Item 1', details: 'This is the first item.' },
     item_bicycle: { name: 'Item', details: <Diary_1_item_bicycle /> },
     item_juice: { name: 'Item', details: <Diary_2_item_juice /> },
+    item_ferry: { name: 'Item', details: <Diary_250705_item_ferry /> },
+    item_jumpin: { name: 'Item', details: <Diary_250725_item_jumpin /> },
+
   };
 
   const item = itemDetails[id];
