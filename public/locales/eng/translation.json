@@ -8,6 +8,7 @@
   "Navbar_diary": "Diary",
   "Navbar_vaccine": "Vaccine",
   "Navbar_loginlog": "Login Log",
+  "Navbar_messageboard": "Memo",
 
   "Login_page_title": "Please login",
   "Login_page_username": "User Name：",
@@ -22,6 +23,15 @@
   "Navbar_vaccine_page_title": "Vaccine Record",
   "Navbar_vaccine_page_date": "Date",
   "Navbar_vaccine_page_vaccine": "Vaccine",
+
+  "Navbar_messageboard_page_title" :"Memo",
+  "Navbar_messageboard_page_form_message" :" Leave a message",
+  "Navbar_messageboard_page_form_submit" :"Submit",
+
+  "Navbar_messageboard_page_rs_id" :"ID",
+  "Navbar_messageboard_page_rs_datetime" :"DateTime",
+  "Navbar_messageboard_page_rs_content" :"Content",
+  "Navbar_messageboard_page_rs_delete" :"Delete",
 
   "End": ""
 }

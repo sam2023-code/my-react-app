@@ -1,7 +1,7 @@
 /* Navbar.css */
 .diary-navbar {
   width: 100%;
-  min-height: 70px;
+  min-height: 50px;
   background-color: #f4f4f4;
   padding: 3px 3px;
   display: flex;
@@ -20,23 +20,23 @@
 }
 
 .diary-navbar li {
-  width: 80px;
+  /*width: 80px;*/
+  min-height: 25px;
   margin: 0px 0px;
   padding-left: 5px;
   padding-right: 5px;
 
   display: inline-block;
   cursor: pointer;
+  
 }
 
 .diary-navbar a {
   text-decoration: none;
   color: #333;
-  font-size: 18px;
 }
 
 .diary-navbar a:hover {
-  font-size: 19px;
   color: #007bff;
 }
 

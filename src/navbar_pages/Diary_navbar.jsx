@@ -24,9 +24,12 @@ export default Diary_navbar;
 const styles = {
 
   link: {
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    fontSize: '15px'
   },
   actLink: {
     backgroundColor: 'lightblue', // Change this color as needed
+    fontSize: '16px',
+    textDecoration: 'underline'
   },
 };

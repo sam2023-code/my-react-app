@@ -8,7 +8,8 @@ import YouTuberPlayerR from '../components/YoutuberPlayerR.jsx';
 
 import { useParams  } from 'react-router-dom';
 
-import Home from './Home.jsx'
+import MessageBoard from './MessageBoard';
+import MessageBoard_grid from './MessageBoard_grid';
 
 const Diary_1_item_bicycle = () => {
     const videoId = 'RPUi3Wfq_wk';
@@ -81,7 +82,6 @@ const Diary = () => {
       <>
       <div className='diary-container'>
           <div className='diary-left' ><Diary_navbar /> </div>
-
           <div className='diary-right'>
                 {item ? item.details : ''}
           </div>

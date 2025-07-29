@@ -70,3 +70,10 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.vaccine_log
     OWNER to postgres;
+
+
+CREATE TABLE messageboard (
+    id SERIAL PRIMARY KEY,
+    content VARCHAR(2000),
+    message_datetime TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,0 +1,45 @@
+/* src/components/MessageBoard.css */
+table {
+    width: 90%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    /* Set a specific width if necessary */
+    /* width: 33%; *//* Adjust based on the number of columns */
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+th:nth-child(1), td:nth-child(1) {
+    /* width: 5%; ID column */
+    min-width: 40px;
+        overflow: hidden; /* Prevent overflow */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+
+th:nth-child(2), td:nth-child(2) {
+    /* width: 25%; ID column */
+    min-width: 110px;
+}
+
+th:nth-child(3), td:nth-child(3) {
+    /* width: 70%; ID column */
+    min-width: 250px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px; /* Adjust the size */
+    height: 10px; /* Adjust the size */
+    background-color: black; /* Change color as needed */
+    border-radius: 50%; /* Makes it a circle */
+}

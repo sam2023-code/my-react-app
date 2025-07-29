@@ -11,6 +11,7 @@ import UserForm from './components/Userform/UserForm.jsx'
 import Diary from './navbar_pages/Diary.jsx'
 import Vaccine from './navbar_pages/Vaccine.jsx'
 import LoginLogTable from './navbar_pages/LoginLogTable.jsx'
+import MessageBoard from './navbar_pages/MessageBoard_grid.jsx'
 import NotFound from './navbar_pages/NotFound.jsx'
 
 import Login_check from './components/Login/Login_check.jsx';
@@ -91,6 +92,10 @@ function App() {
       Component = <LoginLogTable />;
       break;
 
+    case "/messageboard":
+      Component = <MessageBoard />;
+      break;
+
     default:
       Component = <NotFound />; // Optional: Handle unknown routes
       break;
@@ -132,6 +137,7 @@ function App() {
                   <Route path="/vaccine" element={<Vaccine />} />
 
                   <Route path="/loginlog" element={<LoginLogTable />} />
+                  <Route path="/messageboard" element={<MessageBoard />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>
