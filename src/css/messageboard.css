@@ -43,3 +43,46 @@ th:nth-child(3), td:nth-child(3) {
     background-color: black; /* Change color as needed */
     border-radius: 50%; /* Makes it a circle */
 }
+
+
+.message-box{
+
+    padding: 5px 5px;
+    display: flex;
+}
+
+.message-box-left{
+
+    padding: 0px 0px;
+    min-width: 40px;
+}
+.message-box-right {
+
+    padding: 2px 0px;
+    border-radius: 5px; /* Makes it a circle */
+    min-width: 300px;
+}
+
+.message-box-right .message-content {
+    display: flex;
+}
+
+.message-box-right .message-timestamp{
+    padding: 0px 0px 5px 0px;
+}
+
+
+.message-box-right .message-content .message-space{
+
+    padding: 3px 10px;
+}
+
+.message-box-right .message-content .message-content-text{
+
+    width: 250px;
+    min-height: 40px;
+
+    padding: 3px 10px;
+    border: 1px solid lightslategray;
+    border-radius: 5px; /* Makes it a circle */
+}

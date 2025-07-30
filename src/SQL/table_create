@@ -72,8 +72,16 @@ ALTER TABLE IF EXISTS public.vaccine_log
     OWNER to postgres;
 
 
+drop table messageboard
+
 CREATE TABLE messageboard (
     id SERIAL PRIMARY KEY,
     content VARCHAR(2000),
-    message_datetime TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    message_datetime TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP + INTERVAL '8 hours'
 );
+
+ALTER TABLE messageboard
+ADD COLUMN taskfinish VARCHAR(20);
+
+
+select * from messageboard

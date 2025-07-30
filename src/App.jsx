@@ -99,6 +99,7 @@ function App() {
     default:
       Component = <NotFound />; // Optional: Handle unknown routes
       break;
+      
   }
 
   return (

@@ -118,7 +118,7 @@ const Dashboard = () => {
   useEffect(() => {
     const checkSessionTimeout = () => {
 
-      const SESSION_TIMEOUT = 3 * 60 * 1000; // 3 minutes in milliseconds
+      const SESSION_TIMEOUT = 3* 60 * 60 * 1000; // 3 minutes in milliseconds
 
       const loginTimestamp = sessionStorage.getItem('loginTimestamp');
       const isLoggedIn = sessionStorage.getItem('isLoggedIn');
@@ -139,7 +139,7 @@ const Dashboard = () => {
       }
     };
 
-    const interval = setInterval(checkSessionTimeout, 3000); // Check every second
+    const interval = setInterval(checkSessionTimeout, 5000); // Check every 5 seconds
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, [navigate]);

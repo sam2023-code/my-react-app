@@ -81,12 +81,6 @@ const MessageBoard = () => {
         }
     };
 
-        // Function to add 8 hours to the timestamp
-    const addEightHours = (timestamp) => {
-        const date = new Date(timestamp); // Convert timestamp to Date object
-        date.setHours(date.getHours() + 8); // Add 8 hours
-        return date.toLocaleString(); // Format the date
-    };
 
   return (
     <div style={{ padding: '20px' }}>
@@ -125,7 +119,7 @@ const MessageBoard = () => {
 
                                     {sortedMessages_desc.id} 
                             </td>
-                            <td>{new Date(addEightHours(sortedMessages_desc.timestamp)).toLocaleString()}</td>
+                            <td>{new Date(sortedMessages_desc.timestamp).toLocaleString()}</td>
                             <td>{sortedMessages_desc.content}</td>
                         </tr>
                     ))}

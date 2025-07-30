@@ -81,12 +81,50 @@ const MessageBoard_grid = () => {
         }
     };
 
-    // Function to add 8 hours to the timestamp
-    const addEightHours = (timestamp) => {
-        const date = new Date(timestamp); // Convert timestamp to Date object
-        date.setHours(date.getHours() + 8); // Add 8 hours
-        return date.toLocaleString(); // Format the date
+    // State to track the ID of the crossed message
+    const [crossedMessageId, setCrossedMessageId] = useState(null);
+
+    // Function to toggle crossing out a message
+    /*
+    const handleToggleCross = (id) => {
+        setCrossedMessageId(prevId => (prevId === id ? null : id));
     };
+    */
+
+    
+    // Function to toggle crossing out a message and update the API
+    const handleToggleCrossUpdate = async (id , isCrossed) => 
+    {
+        // Determine the new status based on current state
+        const newStatus = isCrossed ? '---' : 'done';
+
+        try {
+            // Make an API call to update the message status
+            const response = await fetch( API_BASE_URL + "/api/messages/" + id , {
+                method: 'PUT', // or 'PATCH' depending on your API
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ taskfinish: newStatus }), // Update the column based on the new status
+            });
+
+            if (response.ok) {
+                // If the API call is successful, toggle the crossed message ID
+                //setCrossedMessageId(isCrossed ? null : id);
+
+                // Fetch the updated messages after deletion
+                fetchMessages();
+            } else {
+                console.error('Failed to update the message status');
+            }
+        } catch (error) {
+            console.error('Error updating message status:', error);
+        }
+    };
+
+
+
+
 
   return (
     <div style={{ padding: '20px' }}>
@@ -115,20 +153,37 @@ const MessageBoard_grid = () => {
                     
                     <div className="message-box" key={message.id}>
 
-                        <br />
-                        <div className="message-timestamp">
-
+                        <div className="message-box-left">
                             <button onClick={() => handleDelete(message.id)}>
                                 {t('Navbar_messageboard_page_rs_delete')}
                             </button>
+                        </div>
 
-                            &nbsp;&nbsp;{new Date(addEightHours(message.timestamp)).toLocaleString()}
+
+                        <div className="message-box-right">
+                            <div className="message-timestamp">
+                                &nbsp;&nbsp;{new Date(message.timestamp).toISOString().split('T')[0]     }
+                            </div>
+                            <div className="message-content">
+                                  <div className="message-space">
+                                      &nbsp;&nbsp;
+                                  </div>
+                                    <div 
+                                      className="message-content-text"
+                                      onClick={() => handleToggleCrossUpdate(message.id, ( message.taskfinish === 'done'? true : false ))} 
+                                      style={{ 
+                                          //textDecoration: crossedMessageId === message.id ? 'line-through' : 'none',
+                                          textDecoration: message.taskfinish === 'done' ? 'line-through' : 'none', 
+                                          backgroundColor: message.taskfinish === 'done' ? 'lightslategray' : '#ced8ff', 
+                                          cursor: 'pointer' // Change cursor to pointer for better UX
+                                      }}
+                                    >
+                                      &bull; {message.content} 
+                                  </div>
+                                  
+                            </div>
                         </div>
-                        <div className="message-content">
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            &bull; {message.content}
-                        </div>
+
                     </div>
                 ))}
             </div>
