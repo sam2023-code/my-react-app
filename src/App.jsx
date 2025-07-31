@@ -12,6 +12,7 @@ import Diary from './navbar_pages/Diary.jsx'
 import Vaccine from './navbar_pages/Vaccine.jsx'
 import LoginLogTable from './navbar_pages/LoginLogTable.jsx'
 import MessageBoard from './navbar_pages/MessageBoard_grid.jsx'
+import Link_kindergarten from './navbar_pages/Link_kindergarten.jsx'
 import NotFound from './navbar_pages/NotFound.jsx'
 
 import Login_check from './components/Login/Login_check.jsx';
@@ -96,10 +97,14 @@ function App() {
       Component = <MessageBoard />;
       break;
 
+    case "/link_kindergarten":
+      Component = <Link_kindergarten />;
+      break;
+
     default:
       Component = <NotFound />; // Optional: Handle unknown routes
       break;
-      
+
   }
 
   return (
@@ -136,6 +141,7 @@ function App() {
                   <Route path="/diary/" element={<Diary />} />
                   <Route path="/diary/:id" element={<Diary />} />
                   <Route path="/vaccine" element={<Vaccine />} />
+                  <Route path="/link_kindergarten" element={<Link_kindergarten />} />
 
                   <Route path="/loginlog" element={<LoginLogTable />} />
                   <Route path="/messageboard" element={<MessageBoard />} />
