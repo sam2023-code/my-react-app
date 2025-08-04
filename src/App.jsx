@@ -13,6 +13,7 @@ import Vaccine from './navbar_pages/Vaccine.jsx'
 import LoginLogTable from './navbar_pages/LoginLogTable.jsx'
 import MessageBoard from './navbar_pages/MessageBoard_grid.jsx'
 import Link_kindergarten from './navbar_pages/Link_kindergarten.jsx'
+import Config_setting from './navbar_pages/Config_setting.jsx'
 import NotFound from './navbar_pages/NotFound.jsx'
 
 import Login_check from './components/Login/Login_check.jsx';
@@ -145,6 +146,8 @@ function App() {
 
                   <Route path="/loginlog" element={<LoginLogTable />} />
                   <Route path="/messageboard" element={<MessageBoard />} />
+
+                  <Route path="/config_setting" element={<Config_setting />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>
