@@ -15,6 +15,7 @@ import MessageBoard from './navbar_pages/MessageBoard_grid.jsx'
 import Link_kindergarten from './navbar_pages/Link_kindergarten.jsx'
 import Config_setting from './navbar_pages/Config_setting.jsx'
 import NotFound from './navbar_pages/NotFound.jsx'
+import SMS_Send from './navbar_pages/SMS_GRID.jsx'
 
 import Login_check from './components/Login/Login_check.jsx';
 import {Login_page , Dashboard} from './components/Login/Login_page.jsx';
@@ -148,9 +149,11 @@ function App() {
                   <Route path="/messageboard" element={<MessageBoard />} />
 
                   <Route path="/config_setting" element={<Config_setting />} />
+                  <Route path="/sms_board" element={<SMS_Send />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>
+                
                 
                 </SessionTimeoutHandler>
               </div>

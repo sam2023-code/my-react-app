@@ -50,15 +50,19 @@ const Login_page = () => {
     }
   };
 
+  /*
   const vistor_login = () => {
-
-      fetch(API_BASE_URL + "/api/login-logs/visitor", {
+    
+      fetch(API_BASE_URL + "/api/login-logs/visitor", 
+      {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ username, password }),
-    })
+      })
+    
+      console.log("visitor-api")
 
       const loginTimestamp = Date.now();
       sessionStorage.setItem('loginTimestamp', loginTimestamp);
@@ -68,7 +72,35 @@ const Login_page = () => {
       navigate('/'); // 重定向到首頁
       window.location.reload();
   };
+  */
+   const vistor_login = async (e) => {
+      e.preventDefault();
+      const response_visitor = await fetch(API_BASE_URL + "/api/login-logs/visitor", 
+      {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      })
+    
+      if (response_visitor.ok) {
+        
+        console.log("visitor-api")
 
+        const loginTimestamp = Date.now();
+        sessionStorage.setItem('loginTimestamp', loginTimestamp);
+        sessionStorage.setItem('isLoggedIn', true);
+        sessionStorage.setItem('login_type', "visitor");
+
+        navigate('/'); // 重定向到首頁
+        window.location.reload();
+        
+      } else {
+        const error = await response_visitor.text();
+        setMessage(error); // 登入失敗
+      }
+  };
 
   return (
     <div className='login'>
