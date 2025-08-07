@@ -32,21 +32,29 @@ https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.ex
 
 
 
-
+***open docker hub k8s first
 cd C:/Users/User/Desktop/React_demo/my-react-app
 
 
 kubectl apply -f k8s_react.yaml
+kubectl apply -f k8s_react_https.yaml
 kubectl port-forward service/react-frontend 3000:80
-Start-Process -FilePath "kubectl" -ArgumentList "port-forward service/react-frontend 4000:80"
 
-//kubectl expose deployment react-frontend --type=NodePort --port=5050
+--get url example
+kubectl get nodes -o wide
 
-
-minikube service react-frontend --url
 kubectl get deployments
 kubectl get services
+kubectl get service react-frontend
 
 
 kubectl delete deployment react-frontend
 kubectl delete service react-frontend 
+
+
+no Use---------------------------------------------------------------------------------------------
+minikube service react-frontend --url
+
+Start-Process -FilePath "kubectl" -ArgumentList "port-forward service/react-frontend 3000:80"
+
+//kubectl expose deployment react-frontend --type=NodePort --port=5050

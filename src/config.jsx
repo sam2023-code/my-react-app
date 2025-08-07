@@ -2,6 +2,7 @@
 //export const API_BASE_URL =  location.protocol + "//" + location.hostname + ":8443"
 //export const API_BASE_URL =  "http://localhost:8080"
 //export const API_BASE_URL =  "http://localhost:5000"
+//export const API_BASE_URL =  "http://localhost:4000"
 export const API_BASE_URL =  "https://www.jasonpakpak0423.com:8443"
 export const API_BASE_TEXT =  location.protocol + "//" + location.hostname + ":8080"
 export const DEBUG_MODE = true;

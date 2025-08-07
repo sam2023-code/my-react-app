@@ -154,7 +154,6 @@ function App() {
                   <Route path="*" element={<NotFound />} />
                 </Routes>
                 
-                
                 </SessionTimeoutHandler>
               </div>
           </>
