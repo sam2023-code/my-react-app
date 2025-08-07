@@ -28,6 +28,7 @@ function Chart_func() {
       { date: '2024-11-18', weight: 7.62 },
       { date: '2025-02-18', weight: 8.50 },
       { date: '2025-04-24', weight: 9.04 },
+      { date: '2025-08-06', weight: 9.83 },
   ];
 
   useEffect(() => {
