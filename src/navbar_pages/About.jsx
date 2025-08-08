@@ -5,15 +5,8 @@ import 'chartjs-adapter-date-fns';
 import i18n from '../i18n.jsx' ; // Import the i18n configuration
 import { useTranslation } from 'react-i18next';
 
-function Chart_func() {
 
-  const { t, i18n } = useTranslation();
-
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
-
-  const chartRef = useRef(null);
+function get_data(){
 
   const data = [
       { date: '2024-04-23', weight: 2.83 },
@@ -30,6 +23,45 @@ function Chart_func() {
       { date: '2025-04-24', weight: 9.04 },
       { date: '2025-08-06', weight: 9.83 },
   ];
+
+  return data;
+}
+
+
+function Chart_func() {
+
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
+  const chartRef = useRef(null);
+
+  const data = get_data();
+  /*
+    const [data, setData] = useState([]); // State to hold dynamic data
+
+    useEffect(() => {
+      // Fetch data from the API
+      const fetchData = async () => {
+        try {
+          const response = await fetch('/api/get-data'); // Replace with your API endpoint
+          const result = await response.json();
+          const formattedData = result.map((item) => ({
+            date: item.v_date, // Assuming `v_date` is the column name in your database
+            weight: item.v_weight, // Assuming `v_weight` is the column name in your database
+          }));
+          setData(formattedData);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+
+      fetchData();
+    }, []);
+
+  */
 
   useEffect(() => {
     Chart.register(...registerables);
@@ -119,22 +151,26 @@ function Chart_func() {
 
   return (
 
-    <>     
+    <div style={{"display": "flex", "flex-direction": "column" , "padding":"10px 20px","maxWidth":"800px" }}>     
     <div>
       <h5> </h5>
       <h3>  {t('Navbar_about_page_title')} </h3>
       <div style={ 
                     {"minWidth":"300px" 
                       ,"minHeight":"400px" 
-                      ,"maxWidth":"800px" 
-                      , "padding":'20px' }  
+                    }  
                 } >
         <canvas id="myChart" ></canvas>
       </div>
       <br/>
     </div>
 
-        <table id="dataTable" style={{padding:'20px'}}  >
+        <table id="dataTable" 
+          style={ 
+                  {  "minWidth":"300px" 
+                  }  
+                }
+        >
         <thead>
           <tr>
             <th style={ {"minWidth":"100px", textAlign: "left", border: '1px solid black' }}>Date</th>
@@ -148,7 +184,7 @@ function Chart_func() {
 
 
 
-    </>
+    </div>
   );
 }
 

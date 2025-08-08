@@ -73,9 +73,14 @@ const Vaccine = () => {
 
   return (
     <>
-    <h3 style={{minHeight: '50px'}}> {t('Navbar_vaccine_page_title')} </h3>
-    <div className="table-container">
+    
+    <div className="table-container"
+      style={{"display": "flex", "flex-direction": "column" , "padding":"10px 20px","maxWidth":"800px" }}
+    >
+      <h3 style={{minHeight: '50px'}}> {t('Navbar_vaccine_page_title')} </h3>
+
       <Output_Table data={data} />
+      
     </div>
     </>
   );

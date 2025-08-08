@@ -8,7 +8,7 @@ const Link_kindergarten = () => {
   const { t, i18n } = useTranslation();
 
   return (
-    <>
+    <div style={{ "padding":"10px 20px" }} >
     <br/>
     <h3 style={{ textAlign: 'center' }}>   </h3>
     
@@ -54,7 +54,7 @@ const Link_kindergarten = () => {
 
 
 
-    </>
+    </div>
   );
 }
 

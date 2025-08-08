@@ -13,10 +13,10 @@ function Home() {
   };
 
   return (
-    <>
+    <div style={{ "padding":"10px 20px" }}>
       <h3 style={{minHeight: '50px'}}> {t('hello')} </h3>
       <img src={logo_Home_Jason} alt="" className='logo_Home_Jason' />
-    </>
+    </div>
   );
 }
 
