@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import { API_BASE_URL, DEBUG_MODE } from '/src/config';
-console.log( API_BASE_URL );
+//console.log( API_BASE_URL );
 
 const ListEmployee = () => {
   const [users, setUsers] = useState([]); // State to store the user data

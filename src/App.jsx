@@ -204,7 +204,7 @@ const SessionTimeoutHandler = ({ children }) => {
       }
     };
 
-    const interval = setInterval(checkSessionTimeout, 3000); // Check every second
+    const interval = setInterval(checkSessionTimeout, 30000); // Check every second
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, [isLoggedIn, navigate]);
