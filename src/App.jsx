@@ -58,6 +58,7 @@ function App() {
     localStorage.setItem('current_theme', theme);
   }, [theme])
 
+  /*
   let Component;
   switch (window.location.pathname) {
 
@@ -108,7 +109,9 @@ function App() {
       break;
 
   }
+  */
 
+  
   return (
     <>
       <div className={`container ${theme}`}>

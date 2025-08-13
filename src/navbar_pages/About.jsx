@@ -151,7 +151,7 @@ function Chart_func() {
 
   return (
 
-    <div style={{"display": "flex", "flex-direction": "column" , "padding":"10px 20px","maxWidth":"800px" }}>     
+    <div style={{"display": "flex", "flexDirection": "column" , "padding":"10px 20px","maxWidth":"800px" }}>     
     <div>
       <h5> </h5>
       <h3>  {t('Navbar_about_page_title')} </h3>

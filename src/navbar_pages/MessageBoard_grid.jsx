@@ -10,6 +10,8 @@ const MessageBoard_grid = () => {
 
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [inputHeight, setInputHeight] = useState(70); // Initial height
+  const [maxInputRow, setMaxInputRow] = useState(0); // Initial height
 
     // Function to fetch messages from the API
     const fetchMessages = async () => {
@@ -78,7 +80,28 @@ const MessageBoard_grid = () => {
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault(); // Prevent form submission on Enter key
+
+            // Add a new line
+            setInputValue((prevText) => prevText + '\n');
+            setInputHeight((prevHeight) => prevHeight + 20); // Increase height by 20px
+
+            const lines = inputValue.split('\n')
+            const lineCount = lines.length;
+            setMaxInputRow(lineCount) 
+
+        } else if (e.key === 'Backspace') {
+            const lines = inputValue.split('\n')
+            const lineCount = lines.length;
+            if (lineCount !== maxInputRow) 
+              { 
+                  setMaxInputRow(lineCount) 
+                  if(inputHeight > 70 && (lineCount+2) * 20 < inputHeight ){
+                    setInputHeight((prevHeight) => prevHeight - 20)
+                  }
+                  //alert( lineCount   `${maxInputRow}` )
+              }
         }
+
     };
 
     // State to track the ID of the crossed message
@@ -132,6 +155,8 @@ const MessageBoard_grid = () => {
       <br />
 
       {sessionStorage.getItem('login_type')  !== "visitor" ?
+
+        <div style={{"display": "flex", "flexDirection": "column",maxWidth:"360px" }} >
         <form onSubmit={handleSubmit}>
           <textarea
             type="text"
@@ -139,11 +164,16 @@ const MessageBoard_grid = () => {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown} // Add the onKeyDown event handler
             placeholder= {t('Navbar_messageboard_page_form_message')} 
-            style={{ width: '300px',height: '60px', marginRight: '10px' }}
+            style={{ width: '360px',height: `${inputHeight}px`, marginRight: '10px', resize: 'none',fontSize:'20px' 
+                      ,padding:'5px 5px'
+                  }}
             rows={4} // Adjust the number of visible rows
           />
-          <button type="submit">{t('Navbar_messageboard_page_form_submit')}  </button>
+          <br/>
+          <button type="submit" style={{float: "right",fontSize : "16px"}}>{t('Navbar_messageboard_page_form_submit')}  </button>
         </form>
+                <br/><br/>
+        </div>
       :
         <></>
       }
