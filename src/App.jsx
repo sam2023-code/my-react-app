@@ -26,9 +26,7 @@ import { useNavigate } from 'react-router-dom';
 import i18n_lang from './i18n.jsx' ; // Import the i18n configuration
 import { useTranslation } from 'react-i18next';
 
-
-
-const SESSION_TIMEOUT = 60 * 60 * 1000; // 3 minutes in milliseconds
+const SESSION_TIMEOUT = 24 * 60 * 60 * 1000; // 3 minutes in milliseconds
 
 function App() {
 
@@ -201,7 +199,7 @@ const SessionTimeoutHandler = ({ children }) => {
         console.log(elapsedTime > SESSION_TIMEOUT);
 
         if (elapsedTime > SESSION_TIMEOUT) {
-          alert('Session expired. Logging out...');
+          //alert('Session expired. Logging out...');
           handleLogout();
         }
       }

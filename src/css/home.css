@@ -1,12 +1,43 @@
 .logo_Home_Jason {
     max-width: 80%; /* Maximum width of the image */
     max-height: 80%; /* Maximum height of the image */
-    max-width: 500px; /* Minimum width of the image */
-    max-height: 500px; /* Minimum height of the image */
+    max-width: 400px; /* Minimum width of the image */
+    max-height: 400px; /* Minimum height of the image */
 
     min-width: 50px; /* Minimum width of the image */
     min-height: 50px; /* Minimum height of the image */
     
     width: auto; /* Maintain aspect ratio */
     height: auto; /* Maintain aspect ratio */
+
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Fade effect */
+}
+
+.fade-in {
+  opacity: 1; /* Show the current image */
+}
+
+.fade-out {
+  opacity: 0; /* Hide the current image */
+}
+
+.image-container {
+    
+  position: relative;
+  width: 100%; /* Adjust as needed */
+  height: 100%; /* Adjust as needed */
+  overflow: hidden;
+}
+
+.fade-image {
+  position: absolute;
+  width: 100%; /* Ensure the image covers the container */
+  height: auto; /* Maintain aspect ratio */
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Fade effect */
+}
+
+.fade-image:nth-child(1) {
+  opacity: 1; /* Show the current image */
 }
