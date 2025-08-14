@@ -20,7 +20,7 @@ const ResponsiveComponent = () => {
 
   return (
     <div>
-      {screenWidth > 900 ? (
+      {screenWidth > 990 ? (
         <div>
               {sessionStorage.getItem('isLoggedIn') === 'true' ? <SubNormalMenu /> : <></> }
         </div>
