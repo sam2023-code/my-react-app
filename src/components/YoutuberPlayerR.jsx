@@ -19,9 +19,9 @@ const YouTubePlayerR = ({ videoId }) => {
   if (windowWidth <= 600) {
     iframeWidth = '95%';
   } else if (windowWidth <= 900) {
-    iframeWidth = '80%';
+    iframeWidth = '500px';
   } else {
-    iframeWidth = '720px';
+    iframeWidth = '600px';
   }
 
   return (

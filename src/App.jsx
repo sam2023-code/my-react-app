@@ -26,7 +26,7 @@ import { useNavigate } from 'react-router-dom';
 import i18n_lang from './i18n.jsx' ; // Import the i18n configuration
 import { useTranslation } from 'react-i18next';
 
-const SESSION_TIMEOUT = 24 * 60 * 60 * 1000; // 3 minutes in milliseconds
+const SESSION_TIMEOUT = 48 * 60 * 60 * 1000; // timeout
 
 function App() {
 
@@ -205,7 +205,7 @@ const SessionTimeoutHandler = ({ children }) => {
       }
     };
 
-    const interval = setInterval(checkSessionTimeout, 30000); // Check every second
+    const interval = setInterval(checkSessionTimeout, 10*60*1000); // Check every 10 minutes
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, [isLoggedIn, navigate]);

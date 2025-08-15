@@ -3,6 +3,17 @@ import { API_BASE_URL } from '../config';
 
 const api_url = API_BASE_URL
 
+function formatDateTime(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
 const App = () => {
     const [ip, setIp] = useState('');
 
@@ -23,14 +34,17 @@ const App = () => {
     
     const loginTimestamp = sessionStorage.getItem('loginTimestamp');
     const loginDate = new Date(Number(loginTimestamp)); // Assuming loginTimestamp is a timestamp
-    const loginTimestamp_date = loginDate.toString().replace("GMT+0800 (中國標準時間)", "");
+    const loginTimestamp_date = formatDateTime(loginDate);
 
     const currentTime = Date.now();
-    const currentTime_date =  (Date(currentTime)).replace("GMT+0800 (中國標準時間)","");
-    const elapsedTime = currentTime - parseInt(loginTimestamp, 10);
+    const currentDate = new Date(Number(currentTime)); // Assuming currentDate is a timestamp
+    const currentTime_date =  formatDateTime(currentDate);
+
+    const elapsedTime = currentTime - loginTimestamp;
 
     const totalSeconds = Math.floor(elapsedTime / 1000);
-    const minutes = Math.floor(totalSeconds / 60);
+    const hours = Math.floor(totalSeconds / 60 / 60 );
+    const minutes = Math.floor( ( totalSeconds /  60 ) % 60 );
     const remainingSeconds = totalSeconds % 60;
 
     return (
@@ -49,7 +63,7 @@ const App = () => {
             <strong>Current time: </strong>
             {currentTime_date}
             <br/><br/>
-            <strong>Elapsed Time:</strong> {minutes} min(s) {remainingSeconds} s
+            <strong>Elapsed Time:</strong> {hours} hour(s)  {minutes} min(s) {remainingSeconds} s
                       
         </div>
     );

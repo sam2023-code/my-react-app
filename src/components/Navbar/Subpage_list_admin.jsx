@@ -14,8 +14,8 @@ const Subpage_list_admin = () => {
                     <li><Link to= "/messageboard">{t('Navbar_messageboard')}</Link></li>
                     <li><Link to= "/link_kindergarten">{t('Navbar_link_kindergarten')}</Link></li>
                     
+                    <li><Link to= "/useful_link">{t('Navbar_link')}</Link></li>
                     
-                    <li><Link to= "/user_list">{t('Navbar_list')}</Link></li>
                     <li><Link to= "/loginlog">{t('Navbar_loginlog')}</Link></li>
                 </ul>
             </>

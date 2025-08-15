@@ -36,7 +36,7 @@ function Home() {
       }
 
       }, 1*1000); // Match this duration with the CSS transition duration
-    }, 6*1000); // Change image every 10 seconds
+    }, 5*1000); // Change image every 10 seconds
 
     return () => clearInterval(interval); // Cleanup on unmount
   }, []);

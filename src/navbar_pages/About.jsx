@@ -196,7 +196,7 @@ function About() {
     return new Promise(resolve => {
       // Simulate an asynchronous operation
       setTimeout(() => {
-        console.log('Function executed!');
+        //console.log('Function executed!');
         resolve();
       }, 1000); // Simulate task duration
     });
