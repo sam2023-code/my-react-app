@@ -66,6 +66,21 @@ const Useful_link = () => {
 	</div>
 	<br/>
 
+	<div className="single_row">
+		<a href="https://console.twilio.com/?selectedTab=notifications#/" target="_blank">
+		Twilio
+		</a>
+	</div>
+	<br/>
+
+	<div className="single_row">
+		<a href="/link_kindergarten" target="_blank">
+		SMS Board
+		</a>
+	</div>
+	<br/>
+
+
 	<p> </p>
 
     Youtube:

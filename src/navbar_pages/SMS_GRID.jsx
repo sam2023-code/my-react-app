@@ -98,7 +98,7 @@ const SMS_GRID = () => {
             onChange={handleTokenChange}
             placeholder= {"token"} 
             onKeyDown={handleKeyDown} // Add the onKeyDown event handler
-            style={{ width: '100px',height: '30px', marginRight: '10px' }}
+            style={{ width: '300px',height: '30px', marginRight: '10px' }}
             rows={1} // Adjust the number of visible rows
           />
 

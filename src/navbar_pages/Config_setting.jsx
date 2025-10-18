@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { API_BASE_URL } from '../config';
+import { local_loginTimestamp,local_isLoggedIn,local_login_type,local_login_username } from '../config';
 
 const api_url = API_BASE_URL
 
@@ -64,7 +65,9 @@ const App = () => {
             {currentTime_date}
             <br/><br/>
             <strong>Elapsed Time:</strong> {hours} hour(s)  {minutes} min(s) {remainingSeconds} s
-                      
+            
+            <br/><br/>
+            {local_loginTimestamp} {local_isLoggedIn} {local_login_type} {local_login_username}
         </div>
     );
 };
